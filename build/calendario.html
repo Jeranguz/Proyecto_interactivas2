@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="bg-primary flex justify-between h-[4.688rem] p-4 gap-4">
+        <img class="" src="../img/logo.png" alt="logo">
+        <input class="bg-elements rounded-full w-[54.5%] flex items-center pl-8" placeholder="Buscar" type="text">
+        <a class="flex gap-4 items-center" href="#">
+            <p class="text-elements text-xl">Jason</p>
+            <img class="w-12" src="../img/profile.png" alt="">
+        </a>
+    </nav>
+    <!-- contenedor -->
+    <div class="grid grid-cols-[repeat(7_,1fr)] gap-4 w-[90%] m-auto mt-8 auto-rows-[minmax(70px_,auto)]">
+        <!-- div de opciones -->
+        <div class="bg-elements col-start-1 col-end-2 m-auto border-solid border-2 border-borderColor p-4 rounded-2xl w-full">
+            <div class="flex items-center gap-2">
+                <h1 id="hour" class="text-[clamp(1rem,_2vw_,2.25rem)]">00:00</h1>
+                <div>
+                    <h2 id="day" class="text-[clamp(.5rem,_1vw,_1.125rem)]">aaaaaaa</h2>
+                    <h2 id="date" class="text-[clamp(.5rem,_1vw,_1.125rem)]">00/00/0000</h2>
+                </div>
+            </div>
+            <div>
+                <a class="flex items-center gap-4 mt-4" href="#">
+                    <img class="w-[2vw]" src="../img/Home.png" alt="">
+                    <h2 class="text-[clamp(.5rem,_1vw,_1.125rem)]">Pagina principal</h2>
+                </a>
+                <a class="flex items-center gap-4 mt-4" href="#">
+                <img class="w-[2vw]" src="../img/Notification.png" alt="">
+                <h2 class="text-[clamp(.5rem,_1vw,_1.125rem)]">Notificaciones</h2>
+            </a>
+            <a class="flex items-center gap-4 mt-4" href="#">
+                <img class="w-[2vw]" src="../img/Calendary.png" alt="">
+                <h2 class="text-[clamp(.5rem,_1vw,_1.125rem)]">Calendario</h2>
+            </a>
+            <a class="flex items-center gap-4 mt-4" href="#">
+                <img class="w-[2vw]" src="../img/Comunicados.png" alt="">
+                <h2 class="text-[clamp(.5rem,_1vw,_1.125rem)]">Comunicados</h2>
+            </a>
+            <a class="flex items-center gap-4 mt-4" href="#">
+                <img class="w-[2vw]" src="../img/Events.png" alt="">
+                <h2 class="text-[clamp(.5rem,_1vw,_1.125rem)]">Eventos</h2>
+            </a>
+            <a class="flex items-center gap-4 mt-4" href="#">
+                <img class="w-[2vw]" src="../img/Tasks.png" alt="">
+                <h2 class="text-[clamp(.5rem,_1vw,_1.125rem)]">Tareas</h2>
+            </a>
+        </div>
+        </div>
+        <!-- div de calendario -->
+        <div id='calendar' class="col-start-2 col-end-7 bg-elements m-auto border-solid border-2 border-borderColor p-4 rounded-2xl w-full row-[1/4]"></div>
+        <!-- div tareas -->
+        <div class="bg-elements col-start-7 col-end-8 m-auto border-solid border-2 border-borderColor p-4 rounded-2xl w-full mt-0 row-[1/4] h-full"></div>
+        <!-- div de progreso semanal -->
+        <div class="bg-elements col-start-1 col-end-2 m-auto border-solid border-2 border-borderColor p-4 rounded-2xl w-full">
+            <div class="flex items-center gap-4 ">
+                <h1 class="text-[clamp(1rem,2vw,2.25rem)]">10%</h1>
+                <div>
+                    <h2 class="text-[clamp(.5rem,_1vw,_1.125rem)]">De la semana completado</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../code.js"></script>
+</body>
+</html>
