@@ -60,3 +60,57 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     calendar.render();
   });
+//
+const btnMes = document.getElementById('btnMes');
+const btnAnual = document.getElementById('btnAnual');
+const btnEuro = document.getElementById('btnEuro');
+const btnDolar = document.getElementById('btnDolar');
+
+const plusPrecio = document.querySelectorAll('.plusPrecio');
+const businessPrecio = document.querySelectorAll('.businessPrecio');
+
+let precios = {
+  mes: {
+    euro: { plus: 5, business: 10 },
+    dolar: { plus: 6, business: 11 }
+  },
+  anual: {
+    euro: { plus: 4, business: 9 },
+    dolar: { plus: 7, business: 12 }
+  }
+};
+
+let selectedDuration = 'mes';
+let selectedCurrency = 'euro';
+
+function updatePrices() {
+  plusPrecio.forEach((element) => {
+    element.textContent = `${precios[selectedDuration][selectedCurrency].plus}${selectedCurrency === 'euro' ? '€' : '$'}`;
+  });
+  businessPrecio.forEach((element) => {
+    element.textContent = `${precios[selectedDuration][selectedCurrency].business}${selectedCurrency === 'euro' ? '€' : '$'}`;
+  });
+}
+
+btnMes.addEventListener('click', () => {
+  selectedDuration = 'mes';
+  updatePrices();
+});
+
+btnAnual.addEventListener('click', () => {
+  selectedDuration = 'anual';
+  updatePrices();
+});
+
+btnEuro.addEventListener('click', () => {
+  selectedCurrency = 'euro';
+  updatePrices();
+});
+
+btnDolar.addEventListener('click', () => {
+  selectedCurrency = 'dolar';
+  updatePrices();
+});
+
+updatePrices();
+//

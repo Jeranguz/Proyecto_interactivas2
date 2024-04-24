@@ -659,7 +659,7 @@ video {
 }
 
 .w-\[\] {
-  width: ;
+  width: 3vw;
 }
 
 .w-\[54\.5\] {
@@ -756,6 +756,13 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+.text-center{
+  text-align: center;
 }
 
 .text-\[clamp\(1rem\2c 2vw\2c 2\.25rem\)\] {
