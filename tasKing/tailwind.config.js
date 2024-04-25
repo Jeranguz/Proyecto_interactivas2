@@ -11,9 +11,10 @@ export default {
         'secondary' : '#156064',
         'backgroundColor': '#F9FAFB',
         'elements' : '#FFFFFF',
-        'textPrimary' : '#313030',
-        'textoSecondary' : '#8F8F8F',
+        'textPrimary' : '#333333',
+        'textSecondary' : '#8F8F8F',
         'borderColor' : '#ECEDF0',
+        'red77' : '#E43535'
       },
       fontFamily: {
        'rubik': ['Rubik','sans-serif'],
