@@ -7,17 +7,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        'primary' : '#3578E4',
-        'secondary' : '#156064',
-        'backgroundColor': '#F9FAFB',
+        'primary' : '#331832', //morado oscuro
+        'secondary' : '#4E284C', //morado claro
+        'backgroundColor': '#E7E3E3',
         'elements' : '#FFFFFF',
-        'textPrimary' : '#333333',
+        'textWhite' : '#FFFFFF',
         'textSecondary' : '#8F8F8F',
         'borderColor' : '#ECEDF0',
         'red77' : '#E43535'
       },
       fontFamily: {
        'rubik': ['Rubik','sans-serif'],
+       'bree': ['Bree Serif', 'serif'],
       },
     },
   },

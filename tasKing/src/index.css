@@ -4,5 +4,22 @@
 
 html{
   @apply font-rubik;
-  @apply text-textPrimary
+  @apply text-primary;
+  @apply bg-backgroundColor;
+}
+
+.fc-toolbar.fc-header-toolbar {
+  margin-bottom: 0 !important;
+}
+
+.fc-header-toolbar{
+  @apply bg-primary;
+  @apply text-primary;
+  @apply p-4;
+  @apply rounded-t-3xl;
+  margin: 0
+}
+
+.fc-toolbar-title{
+  @apply text-elements;
 }
