@@ -10,7 +10,7 @@ export default {
         'primary' : '#331832', //morado oscuro
         'secondary' : '#4E284C', //morado claro
         'backgroundColor': '#E7E3E3',
-        'elements' : '#FFFFFF',
+        'grayElements' : '#E8EEF2',
         'textWhite' : '#FFFFFF',
         'textSecondary' : '#8F8F8F',
         'borderColor' : '#ECEDF0',

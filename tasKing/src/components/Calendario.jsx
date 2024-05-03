@@ -10,7 +10,7 @@ export function Calendario() {
     return (
 
         <>
-            <div className="col-start-1 col-end-5 bg-textWhite m-auto w-full h-full mt-0 rounded-3xl">
+            <div className="col-start-1 col-end-4 bg-textWhite m-auto w-full h-full mt-0 rounded-3xl row-[1/4]">
 
                 <FullCalendar
                     plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
