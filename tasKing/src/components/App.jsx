@@ -10,7 +10,7 @@ import { PaginaCalendario } from './PaginaCalendario';
 export function App() {
   return (
     <>
-      <PaginaNotificaciones />
+      <PaginaCalendario />
 
     </>
   );
