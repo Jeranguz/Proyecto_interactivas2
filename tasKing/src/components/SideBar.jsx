@@ -22,7 +22,7 @@ const options = [
 
 export function SideBar() {
     return (
-        <div className="bg-primary w-[20%] h-[100vh]">
+        <div className="bg-primary w-[20%] h-[100vh] hidden laptop:block">
             <div className='w-[84.15%] m-auto'>
                 <div className="flex w-full mt-[2.75rem] items-center justify-between">
                     <img className='w-[9vw]' src={Logo} alt="" />

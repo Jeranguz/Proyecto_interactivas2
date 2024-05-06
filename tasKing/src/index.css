@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+
+:root{
+  --fc-button-bg-color: #331832;
+  --fc-button-border-color: #331832;
+  --fc-button-hover-bg-color: #FFFFFF;
+  --fc-button-hover-border-color: #FFFFFF;
+  --fc-button-active-bg-color: #FFFFFF;
+  --fc-button-active-border-color: #FFFFFF;
+  --fc-button-active-border-color: #FFFFFF;
+
+  --fc-today-bg-color: #4e284c4b;
+  --fc-border-color: #ffffff00;
+  /* --fc-now-indicator-color */
+
+  --fc-event-bg-color: #331832;
+  --fc-event-border-color: #331832;
+}
 html{
   @apply font-rubik;
   @apply text-primary;
@@ -17,9 +34,31 @@ html{
   @apply text-primary;
   @apply p-4;
   @apply rounded-t-3xl;
-  margin: 0
+  margin: 0;
 }
 
+.fc-button-primary:hover{
+  @apply text-primary !important;
+  @apply bg-textWhite !important;
+}
+
+.fc-button-active{
+  @apply text-primary !important;
+}
+
+.fc .fc-toolbar-title{
+  @apply text-[clamp(1em,_1.5vw,_1.75em)]; 
+}
 .fc-toolbar-title{
   @apply text-textWhite;
+  
 }
+
+.fc .fc-button{
+  @apply text-[clamp(.5em,_3vw_,_1em)]
+}
+
+/* .fc .fc-button-group{
+  @apply grid;
+  @apply grid-cols-2;
+} */
