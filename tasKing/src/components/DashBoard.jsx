@@ -1,5 +1,6 @@
 import { Calendario } from './Calendario';
 import { SideBar } from './SideBar';
+import { Notification, Noti } from "./Notification";
 import Profile from '../assets/imgs/profile.png';
 import { DayTasksBento } from './Bento_Componentes/DayTasksBento';
 import { ProgressBento } from './Bento_Componentes/ProgressBento';
@@ -24,27 +25,28 @@ export function DashBoard() {
                         </div>
 
                     </div>
-                    <div className="grid grid-cols-[repeat(1_,1fr)] grid-rows-[repeat(5_,1fr)] sm:h-[80vh] gap-4 mt-8 h-screen sm:grid-cols-[repeat(16_,1fr)] sm:gap-8">
+                    <div className="grid grid-cols-[repeat(1_,1fr)] grid-rows-[repeat(5_,1fr)] sm:h-[80vh] gap-4 mt-8 h-screen sm:grid-cols-[repeat(16_,1fr)] sm:gap-[2%]">
 
 
-                        <div className=" space-x-1 w-full h-full sm:bg-gray-100 rounded-3xl sm:h-full col-span-1 sm:col-span-7 sm:row-span-3">
+                        <div className=" space-x-1 w-full h-full sm:bg-textWhite rounded-3xl sm:h-full col-span-1 sm:col-span-7 sm:row-span-3">
                             <div className='h-[]'>
                                 
                             </div>
 
                         </div>
 
-                        <div className="w-full h-full sm:bg-gray-100 rounded-3xl sm:h-full sm:col-span-5 sm:row-span-3">
+                        <div className="w-full h-full sm:bg-textWhite rounded-3xl sm:h-full sm:col-span-5 sm:row-span-3">
                         </div>
 
-                        <div className="w-full h-full sm:bg-gray-100 rounded-3xl sm:h-full sm:col-start-13 sm:col-span-4 sm:row-span-full">
+                        <div className="w-full h-full sm:bg-textWhite rounded-3xl sm:h-full sm:col-start-13 sm:col-span-4 sm:row-span-full">
                             <DayTasksBento />
+                            
                         </div>
-                        <div className="w-full h-full sm:bg-gray-100 rounded-3xl sm:h-full sm:row-start-4 sm:col-span-6 sm:row-span-full">
-                            <ProgressBento />
+                        <div className="w-full h-full sm:bg-textWhite rounded-3xl sm:h-full sm:row-start-4 sm:col-span-6 sm:row-span-full">
+                        <ProgressBento progreso={100} />
                         </div>
-                        <div className="w-full h-full sm:bg-gray-100 rounded-3xl sm:h-full sm:row-start-4 sm:col-span-6 sm:row-span-full">
-                            <WorkLoadBento />
+                        <div className="w-full h-full sm:bg-textWhite rounded-3xl sm:h-full sm:row-start-4 sm:col-span-6 sm:row-span-full">
+                        <WorkLoadBento tasks={[1,2,3,4,5,6,7]} />
                         </div>
                     </div>
                 </div>
