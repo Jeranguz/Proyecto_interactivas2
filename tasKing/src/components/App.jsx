@@ -1,12 +1,12 @@
-import { Calendario } from './Calendario';
+import { Notification } from './Notification';
 import { SideBar } from './SideBar';
 import Profile from '../assets/imgs/profile.png';
-import { PaginaCalendario } from './PaginaCalendario';
+import { PaginaNotificaciones } from './PaginaNotificaciones';
 
 export function App() {
   return (
     <>
-      <PaginaCalendario />
+      <PaginaNotificaciones />
 
     </>
   );
