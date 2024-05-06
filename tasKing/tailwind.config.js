@@ -20,6 +20,9 @@ export default {
        'rubik': ['Rubik','sans-serif'],
        'bree': ['Bree Serif', 'serif'],
       },
+      screens: {
+        'laptop': '1230px',
+      },
     },
   },
   plugins: [],
