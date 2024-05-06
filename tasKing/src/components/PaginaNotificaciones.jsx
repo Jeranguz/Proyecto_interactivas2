@@ -17,8 +17,33 @@ export function PaginaNotificaciones() {
             <img className="w-10 h-10 rounded-full" src={Profile} alt="" />
           </div>
         </div>
-        <div className="bg-white h-full rounded-lg mt-8 mx-8">
+        <div className="bg-white rounded-lg mx-8 my-8">
           <Noti/>
+          <Notification
+            title="Nuevo mensaje"
+            body="¡Hola! ¿Cómo estás?"
+            time="Hace 5 minutos"
+          />
+          <Notification
+            title="Nuevo mensaje"
+            body="¡Hola! ¿Cómo estás?"
+            time="Hace 5 minutos"
+          />
+          <Notification
+            title="Nuevo mensaje"
+            body="¡Hola! ¿Cómo estás?"
+            time="Hace 5 minutos"
+          />
+          <Notification
+            title="Nuevo mensaje"
+            body="¡Hola! ¿Cómo estás?"
+            time="Hace 5 minutos"
+          />
+          <Notification
+            title="Nuevo mensaje"
+            body="¡Hola! ¿Cómo estás?"
+            time="Hace 5 minutos"
+          />
           <Notification
             title="Nuevo mensaje"
             body="¡Hola! ¿Cómo estás?"
