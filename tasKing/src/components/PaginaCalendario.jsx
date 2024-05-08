@@ -24,8 +24,8 @@ export function PaginaCalendario() {
                     {/* grid-rows-[13rem,13rem,20rem] */}
                     <div className="grid laptop:grid-cols-[repeat(4_,1fr)] md:grid-cols-3 grid-cols-1 gap-4 mt-8 h-[80vh] ">
                         <Calendario/>
-                        <Progress progreso={70} />
-                        <WorkLoad tasks={[1,2,3,4,5,6,7]} />
+                        <Progress progreso={100} />
+                        <WorkLoad tasks={[1,2,3,4,5,6]} />
                         <DayTasks/>
                     </div>
                 </div>

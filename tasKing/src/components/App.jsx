@@ -11,7 +11,7 @@ import {AppProfile} from './AppProfile';
 export function App() {
   return (
     <>
-      <DashBoard />
+      <PaginaCalendario />
 
     </>
   );
