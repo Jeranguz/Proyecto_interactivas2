@@ -6,8 +6,6 @@ import Profile from '../assets/imgs/profile.png';
 export function AppProfile() {
   return (
     <>
-      <div className='flex h-full'>
-        <SideBar />
         <div className='w-[75%]  m-auto mt-2'>
           <div className=' flex justify-between  m-auto mt-8' >
             <h1 className='text-6xl font-bold'>Perfil Usuario</h1>
@@ -25,7 +23,6 @@ export function AppProfile() {
           </div>
             
         </div>
-      </div>
 
     </>
   );

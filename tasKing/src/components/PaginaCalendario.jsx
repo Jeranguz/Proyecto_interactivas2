@@ -7,8 +7,6 @@ import { DayTasks } from "./calendary_components/DayTasks";
 export function PaginaCalendario() {
     return (
         <>
-            <div className='flex h-full'>
-                <SideBar />
                 <div className='w-[90%] laptop:w-[77%]  m-auto mt-2 '>
                     <div className=' flex justify-between  m-auto mt-6' >
                         <h1 className='text-[clamp(1rem,_2.9vw,_3.75rem)] font-bold'>Calendario</h1>
@@ -29,7 +27,6 @@ export function PaginaCalendario() {
                         <DayTasks/>
                     </div>
                 </div>
-            </div>
         </>
     )
 }

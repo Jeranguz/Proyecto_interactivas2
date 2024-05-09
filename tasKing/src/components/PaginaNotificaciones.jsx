@@ -5,8 +5,6 @@ import Profile from '../assets/imgs/profile.png';
 export function PaginaNotificaciones() {
 
   return (
-    <div className="flex h-full">
-      <SideBar />
       <div className="w-[77%] m-auto mt-2">
         <div className="mt-8">
           <div className="flex justify-end items-center mr-8 gap-4">
@@ -56,6 +54,5 @@ export function PaginaNotificaciones() {
           />
         </div>
       </div>
-    </div>
   );
 }

@@ -9,8 +9,6 @@ import { WorkLoadBento } from './Bento_Componentes/WorkLoadBento';
 export function DashBoard() {
     return (
         <>
-            <div className='flex h-full'>
-                <SideBar />
                 <div className='w-[70%] sm:w-[75%]  m-auto mt-2'>
                     <div className=' flex justify-between  m-auto mt-8' >
                         <h1 className='text-6xl font-bold'>Bienvenido, Jason!</h1>
@@ -72,7 +70,6 @@ export function DashBoard() {
                     </div>
                 </div>
             </div>
-        </div >
         </>
     );
 }
