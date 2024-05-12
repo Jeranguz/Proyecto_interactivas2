@@ -5,13 +5,14 @@ import { PaginaNotificaciones } from './PaginaNotificaciones';
 import { DashBoard } from './DashBoard';
 import { PaginaCalendario } from './PaginaCalendario';
 import {AppProfile} from './AppProfile';
+import { PaginaDetalles } from './PaginaDetalles';
 
 
 
 export function App() {
   return (
     <>
-      <PaginaCalendario />
+      <PaginaDetalles />
 
     </>
   );
