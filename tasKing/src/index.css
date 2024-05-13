@@ -25,8 +25,8 @@ html{
   @apply bg-backgroundColor;
 }
 
-.fc-toolbar.fc-header-toolbar {
-  margin-bottom: 0 !important;
+.fc .fc-toolbar.fc-header-toolbar {
+  margin-bottom: 0;
 }
 
 .fc-header-toolbar{
@@ -47,7 +47,7 @@ html{
 }
 
 .fc .fc-toolbar-title{
-  @apply text-[clamp(1em,_1.5vw,_1.75em)]; 
+  @apply text-[clamp(1.1em,_1.5vw,_1.75em)]; 
 }
 .fc-toolbar-title{
   @apply text-textWhite;
@@ -55,7 +55,7 @@ html{
 }
 
 .fc .fc-button{
-  @apply text-[clamp(.5em,_3vw_,_1em)]
+  /* @apply text-[clamp(.5em,_3vw_,_1em)] */
 }
 
 /* .fc .fc-button-group{

@@ -31,7 +31,7 @@ export function Perfil() {
             </div>
 
             <div className='w-[94%]'>
-                <div class="col-span-1 bg-white p-5 rounded-lg shadow-md mb-[5.2rem]">
+                <div class="col-span-1 bg-white p-5 rounded-lg shadow-md mb-4">
                     <h3 class="font-bold text-lg mb-4">Cursos matriculados</h3>
                     <p className='mb-[0.5rem]'>Desarrollo de Aplicaciones Interactivas I</p>
                     <p className='mb-[0.5rem]'>Diseño Web</p>
@@ -39,7 +39,7 @@ export function Perfil() {
                     <p className='mb-[0.5rem]'>Ingeniería de Aplicaciones</p>
                 </div>
 
-                <div class="bg-white p-4 rounded-lg shadow-md ">
+                <div class="bg-white p-4 rounded-lg shadow-md">
                     <h2 class="font-semibold mb-4 text-[clamp(1rem,_2.5vw,_2rem)]" >Progreso de cursos</h2>
                     <div class="mb-2">
                         <p class="text-sm mb-1">Desarrollo de Aplicaciones Interactivas I</p>
@@ -88,11 +88,7 @@ export function Perfil() {
                         <p class="text-white text-sm">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
-                    <div class="bg-primary shadow-lg rounded-lg p-4">
-                        <h3 class="text-lg font-normal text-white">Diseño Web</h3>
-                        <p class="text-white text-sm">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
+                    
                 </div>
 
             </div>

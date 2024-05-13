@@ -88,8 +88,8 @@ export function Calendario() {
                     initialView='dayGridMonth'
                     // slotDuration='00:15:00'
                     headerToolbar={{
-                        start: 'timeGridDay,timeGridWeek,dayGridMonth',
-                        center: 'title',
+                        start: window.innerWidth <= 640 ? 'title' : 'timeGridDay,timeGridWeek,dayGridMonth',
+                        center: window.innerWidth <= 640 ? '' : 'title',
                         end: 'today prev,next'
                     }}
                     height='100%'
@@ -103,6 +103,7 @@ export function Calendario() {
                     nowIndicator={true}
                     dayMaxEvents={3}
                     fixedWeekCount={false}
+                    
                 />
             </div>
         </>
