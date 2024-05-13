@@ -14,7 +14,9 @@ export default {
         'textWhite' : '#FFFFFF',
         'textSecondary' : '#8F8F8F',
         'borderColor' : '#ECEDF0',
-        'red77' : '#E43535'
+        'red77' : '#E43535',
+        'border': 'C9C9C9',
+        'hourText': '#B4C1C7'
       },
       fontFamily: {
        'rubik': ['Rubik','sans-serif'],

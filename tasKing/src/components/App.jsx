@@ -7,6 +7,9 @@ import { PaginaCalendario } from './PaginaCalendario';
 import { AppProfile } from './AppProfile';
 import { Link } from 'react-router-dom'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { PaginaTareas } from './PaginaTareas';
+
+
 
 export function App() {
   return (
