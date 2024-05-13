@@ -22,6 +22,7 @@ export function App() {
             <Route path='/PaginaNotificaciones' element={<PaginaNotificaciones />} />
             <Route path='/PaginaCalendario' element={<PaginaCalendario />} />
             <Route path='/AppProfile' element={<AppProfile />} />
+            <Route path='/tareas' element={<PaginaTareas />} />
             <Route path='/' element={<DashBoard />} />
           </Routes>
         </Router>
