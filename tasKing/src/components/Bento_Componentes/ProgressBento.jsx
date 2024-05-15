@@ -5,8 +5,8 @@ export function ProgressBento({ progreso }) {
     }
     const barWidth = progreso + '%';
     return (
-        <div className="w-full h-full bg-textWhite rounded-3xl flex flex-col justify-center items-center">
-            <div className='h-[90%] w-[]'> 
+        <div className="w-full h-full py-6 bg-textWhite rounded-3xl flex flex-col justify-center items-center">
+            <div className='h-[100%] '> 
                 <h2 className='text-primary text-[clamp(1rem,_2vw,_3rem)] font-bold text-center'>Progreso semanal</h2>
                 <div className="flex items-center mt-[5%] gap-[6%] ">
                     <h1 className="text-[clamp(1rem,_2vw,_2.25rem)]">{progreso + '%'}</h1>

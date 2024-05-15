@@ -13,11 +13,11 @@ export function DayTasksBento() {
                 <div>
                     <img src="" alt="" />
                 </div>
-                <div className='grid gap-[6%] mt-2 w-full m-auto'>
+                <div className='grid gap-[6%] mt-2 w-full'>
                     {tasks.map((task, index) => (
-                        <div key={index} className='bg-primary text-textWhite px-[10%] py-[8%] rounded-2xl w-full'>
+                        <div key={index} className='bg-primary text-textWhite px-[2vw] py-[3.5vw] md:py-[2.5vh] rounded-[1.5vh] md:rounded-[1vw] w-full'>
                             <h3 className='text-[clamp(.3rem,_.6vw,_1rem)] font-semibold truncate'>{task.title}</h3>
-                            <p className='font-bree text-[clamp(.1rem,_.5vw,_0.75rem)]'>{task.deadline}</p>
+                            <p className='font-bree text-[clamp(.1rem,_.8vw,_1rem)]'>{task.deadline}</p>
                         </div>
                     ))}
 
