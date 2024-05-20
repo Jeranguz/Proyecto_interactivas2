@@ -15,7 +15,9 @@ export function PaginaCalendario() {
                                 <h2 className="font-bold">Jason</h2>
                                 <p>Jason_morales@gmail.com</p>
                             </div>
-                            <img className='w-[2.688rem] h-[2.688rem]' src={Profile} alt="" />
+                            <a href='./AppProfile'>
+                                <img className='w-[2.688rem] h-[2.688rem]'  src={Profile} alt="" />
+                            </a>
                         </div>
 
                     </div>

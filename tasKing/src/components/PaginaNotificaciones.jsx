@@ -12,7 +12,9 @@ export function PaginaNotificaciones() {
               <h2 className="font-semibold">Jason</h2>
               <p className="text-gray-500">Jason_morales@gmail.com</p>
             </div>
-            <img className="w-10 h-10 rounded-full" src={Profile} alt="" />
+              <a href='./AppProfile'>
+                <img className='w-[2.688rem] h-[2.688rem]'  src={Profile} alt="" />
+              </a>
           </div>
         </div>
         <div className="bg-white rounded-lg mx-8 my-8">

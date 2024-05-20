@@ -12,7 +12,7 @@ export function AppProfile() {
             <div className='flex items-center gap-4'>
               <div className='text-end'>
                 <h2 className='font-bold'>Jason</h2>
-                <p>Jason_morales@gmail.com</p>
+                <p className='text-[clamp(0.5rem,_0.8rem,_1.1rem)]'>Jason_morales@gmail.com</p>
               </div>
               <img className='w-[2.688rem] h-[2.688rem]' src={Profile} alt="" />
             </div>

@@ -8,20 +8,20 @@ export function Perfil() {
         <div>
 
             {/*Div que divide las secciones en 2 columnas*/}
-            <div class="grid laptop:grid-cols-[repeat(2_,1fr)] grid-cols-1 gap-4 mt-4 h-[80vh] max-[600px]:grid-cols-[repeat(1_,1fr)]">
+            <div class="grid laptop:grid-cols-[repeat(2_,1fr)] grid-cols-1 gap-4 mt-4 h-[80vh] max-sm:grid-cols-[repeat(1_,1fr)] ">
 
                 {/*Div que contiene las secciones de Datos del Perfil, Cursos Matriculados, Progresos de cursos y el editar datos*/}
                 <div>
                     
                     {/* Div que divide en dos columnas los datos del perfil y los cursos matriculados */}
-                    <div className='laptop:w-[46rem] grid grid-cols-2 max-[600px]:flex max-[500px]:grid-cols-1 min-[720px]:flex justify-items-center justify-center'>
+                    <div className='laptop:w-[46rem] grid grid-cols-2 max-sm:grid-cols-1 min-[720px]:flex justify-items-center justify-center'>
 
                         {/* Datos del usuario */}
                         <div class='rounded-lg overflow-hidden shadow-lg bg-white p-4 relative h-[13.5rem] mb-[1rem]'>
                             <div class='flex items-center space-x-4 mt-[2rem]'>
                                 <div class='relative'>
-                                    <img class='w-[105%] h-[100%] rounded-full border-2 border-purple-500 max-[1024]:w-[50%]' src={Profile} alt=''/>
-                                    <div class='absolute -bottom-1 -right-1 bg-purple-500 p-2 rounded-full'>
+                                    <img class='w-[105%] h-[100%] rounded-full border-2 border-purple-500 max-sm:w-[105%] max-sm:ml-0 max-xl:w-[50%] max-xl:ml-[2rem] max-lg:w-[70%]' src={Profile} alt=''/>
+                                    <div class='absolute -bottom-1 -right-1 bg-purple-500 p-2 rounded-full max-xl:mr-[6rem] max-lg:mr-0 max-sm:-right-1'>
                                         <button className='w-[1.5rem]'> <img src={Settings} alt='' />
                                         </button>
                                     </div>
@@ -36,7 +36,7 @@ export function Perfil() {
                         </div>
 
                         {/* Cursos Matriculados */}
-                        <div class='col-span-1 bg-white p-4 rounded-lg shadow-md mb-[1rem] ml-4 w-[96%] max-[500px]:ml-0 max-[500px]:w-[100%]'>
+                        <div class='col-span-1 bg-white p-4 rounded-lg shadow-md mb-[1rem] ml-4 w-[96%] max-sm:w-[100%] max-sm:ml-0'>
                             <h3 class='font-bold text-lg mb-4'>Cursos matriculados</h3>
                             <p className='mb-[0.5rem]'>Desarrollo de Aplicaciones Interactivas I</p>
                             <p className='mb-[0.5rem]'>Diseño Web</p>
@@ -76,7 +76,7 @@ export function Perfil() {
                                     <div class='bg-green-600 h-4 rounded-full w-[80%]'></div>
                                 </div>
                             </div>
-                            <button class='bg-purple-600 text-white py-2 px-4 rounded-lg w-[18rem] hover:bg-purple-700 transition-colors mt-[1rem]'>Ver más</button>
+                            <button class='bg-primary text-white py-2 px-4 rounded-lg w-[18rem] hover:bg-purple-900 transition-colors mt-[1rem]'>Ver más</button>
                     </div>
 
                     {/* Editar Datos*/}
