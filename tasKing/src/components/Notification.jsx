@@ -1,14 +1,32 @@
 import '../index.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Settings from '../assets/imgs/settings-svgrepo-com 3.png';
+import Menu from '../assets/imgs/Menu.png';
 
 export function Noti() {
+    const [isOpenLeft, setIsOpenLeft] = useState(false);
+    const [isOpenRight, setIsOpenRight] = useState(false);
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 1050); // Detecta si la pantalla es móvil
+
+    const toggleMenuLeft = () => {
+        setIsOpenLeft(!isOpenLeft);
+    };
+
+    const toggleMenuRight = () => {
+        setIsOpenRight(!isOpenRight);
+    };
+
+    const handleOutsideClick = () => {
+        if (isOpenLeft) {
+            setIsOpenLeft(false);
+        }
+        if (isOpenRight) {
+            setIsOpenRight(false);
+        }
+    };
 
     const selectAll = () => {
         // Implementación de la función Seleccionar todo
-    };
-
-    const selectNull = () => {
-        // Implementación de la función Seleccionar ninguna
     };
 
     const showRead = () => {
@@ -27,29 +45,67 @@ export function Noti() {
         // Implementación de la función Mostrar no destacadas
     };
 
+    // Función para manejar el cambio en el tamaño de la ventana
+    const handleResize = () => {
+        setIsMobile(window.innerWidth < 1050);
+    };
+
+    // Agregar un event listener para detectar cambios en el tamaño de la ventana
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     return(
         <div className="grid">
-            <h1 className="flex text-4xl font-bold text-center mt-8 mx-8">Notificaciones</h1>
             <div className="flex items-center justify-between mx-8 my-8">
                 <div className="flex gap-4 items-center justify-center">
-                    <button className="text-sm w-20 font-semibold rounded-lg bg-primary text-textWhite hover:opacity-50" onClick={selectAll}>Todas</button>
-                    <button className="text-sm w-24 font-semibold rounded-lg bg-primary text-textWhite hover:opacity-50" onClick={selectNull}>Ninguna</button>
-                    <button className="text-sm w-24 font-semibold rounded-lg bg-primary text-textWhite hover:opacity-50" onClick={showRead}>Leídas</button>
-                    <button className="text-sm w-24 font-semibold rounded-lg bg-primary text-textWhite hover:opacity-50" onClick={showUnread}>No leídas</button>
-                    <button className="text-sm w-28 font-semibold rounded-lg bg-primary text-textWhite hover:opacity-50" onClick={highLighted}>Destacadas</button>
-                    <button className="text-sm w-32 font-semibold rounded-lg bg-primary text-textWhite hover:opacity-50" onClick={noHighLighted}>No destacadas</button>
+                    {isMobile ? (
+                        <div className="relative">
+                            <button onClick={toggleMenuLeft} className="relative z-10"><img src={Menu} alt="" /></button>
+                            {isOpenLeft && (
+                                <div className="absolute top-0 left-0 mt-8 w-48 bg-white border border-gray-300 rounded-lg shadow-lg z-20">
+                                    <button className="block w-full py-2 text-left px-4 hover:bg-gray-100" onClick={selectAll}>Todas</button>
+                                    <button className="block w-full py-2 text-left px-4 hover:bg-gray-100" onClick={showRead}>Leídas</button>
+                                    <button className="block w-full py-2 text-left px-4 hover:bg-gray-100" onClick={showUnread}>No leídas</button>
+                                    <button className="block w-full py-2 text-left px-4 hover:bg-gray-100" onClick={highLighted}>Destacadas</button>
+                                    <button className="block w-full py-2 text-left px-4 hover:bg-gray-100" onClick={noHighLighted}>No destacadas</button>
+                                </div>
+                            )}
+                            <div onClick={handleOutsideClick} className={`fixed inset-0 ${isOpenLeft ? 'block' : 'hidden'}`} />
+                        </div>
+                    ) : (
+                        <>
+                            <button className="text-sm w-20 font-semibold rounded-lg bg-primary text-textWhite hover:opacity-50" onClick={selectAll}>Todas</button>
+                            <button className="text-sm w-24 font-semibold rounded-lg bg-primary text-textWhite hover:opacity-50" onClick={showRead}>Leídas</button>
+                            <button className="text-sm w-24 font-semibold rounded-lg bg-primary text-textWhite hover:opacity-50" onClick={showUnread}>No leídas</button>
+                            <button className="text-sm w-28 font-semibold rounded-lg bg-primary text-textWhite hover:opacity-50" onClick={highLighted}>Destacadas</button>
+                            <button className="text-sm w-32 font-semibold rounded-lg bg-primary text-textWhite hover:opacity-50" onClick={noHighLighted}>No destacadas</button>
+                        </>
+                    )}
                 </div>
                 <div className="flex gap-8 items-center justify-center">
                     <span className="text-sm font-semibold text-primary">Página</span>
                     <button className="text-sm font-semibold text-primary">{"<"}</button>
                     <button className="text-sm font-semibold text-primary">{">"}</button>
+                    <div className="relative">
+                        <button onClick={toggleMenuRight} className="relative z-10"><img src={Menu} alt="" /></button>
+                        {isOpenRight && (
+                            <div className="absolute top-0 right-0 mt-8 w-48 bg-white border border-gray-300 rounded-lg shadow-lg z-20">
+                                <button className="block w-full py-2 text-left px-4 hover:bg-gray-100">Leídas Todas</button>
+                                <button className="block w-full py-2 text-left px-4 hover:bg-gray-100">Eliminar Todas</button>
+                                <button className="block w-full py-2 text-left px-4 hover:bg-gray-100">Destacar Todas</button>
+                            </div>
+                        )}
+                        <div onClick={handleOutsideClick} className={`fixed inset-0 ${isOpenRight ? 'block' : 'hidden'}`} />
+                    </div>
+                    <button className="text-sm font-semibold text-primary"><img src={Settings}alt="" /></button>
                 </div>
             </div>
-            <div>
-                
-            </div>
         </div>
-    )
+    );
 }
 
 export function Notification({ title, body, time }) {
