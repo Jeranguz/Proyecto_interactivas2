@@ -9,7 +9,7 @@ import { WorkLoadBento } from './Bento_Componentes/WorkLoadBento';
 export function DashBoard() {
     return (
         <>
-            <div className='w-[70%] sm:w-[75%]  m-auto mt-2'>
+            <div className='w-[75vw] h-[90vh] sm:w-[77vw] ml-[20vw] sm:ml-[21.5vw]  mt-2'>
                 <div className=' flex justify-between  mt-[4vh]' >
                     <h1 className='text-[10vw] xl:text-[6vh] font-bold'>Bienvenido, Jason!</h1>
 
@@ -25,7 +25,7 @@ export function DashBoard() {
                     </div>
 
                 </div>
-                <div className="grid grid-cols-[repeat(1_,1fr)] grid-rows-[repeat(5_,1fr)] sm:h-[90vh] gap-4 h-[2vh] sm:grid-cols-[repeat(16_,1fr)] sm:gap-[1.5vw]">
+                <div className="grid grid-cols-[repeat(1_,1fr)] grid-rows-[repeat(5_,1fr)] sm:h-[80vh] gap-[2.5vw] h-[2vh] sm:grid-cols-[repeat(16_,1fr)] sm:gap-[1.5vw]">
 
 
                     <div className=" max-h-[7300px] space-x-1 w-full h-full sm:bg-textWhite rounded-3xl sm:h-full col-span-1 sm:col-span-7 sm:row-span-3">
