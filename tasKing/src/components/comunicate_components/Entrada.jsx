@@ -5,37 +5,15 @@ import Lupa from '../../assets/imgs/lupa.png'
 export function Entrada() {
     return (
         
-        <div class="flex mt-4 mb-4">
-            <div class="w-1/4 bg-white dark:bg-zinc-900 p-5 rounded-l-3xl ">
-                <div class="flex items-center space-x-2 border-b pb-5 mb-5">
-                    <span class="font-medium text-zinc-700 dark:text-white">Jason_morales@gmail.com</span>
-                </div>
-                <ul class="space-y-2">
-                    <li>
-                        <button class="w-full text-left p-2 hover:text-blue-500 rounded hover:bg-primary dark:hover:bg-zinc-700">
-                        Entrada
-                        </button>
-                    </li>
-                    <li>
-                        <button class="w-full text-left p-2 hover:text-blue-500 rounded hover:bg-primary dark:hover:bg-zinc-700">
-                        Redactar
-                        </button>
-                    </li>
-                    <li>
-                        <button class="w-full text-left p-2 hover:text-blue-500 rounded hover:bg-primary    dark:hover:bg-zinc-700">
-                        Enviados
-                        </button>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="w-3/3 flex border-l-4 ">
-                <div class="bg-white dark:bg-zinc-800 p-4 w-[45%]">
+        <div>
+            <div class="w-3/3 flex border-l-4 max-sm:grid max-md:grid laptop:grid-cols-[repeat(2_,1fr)] grid-cols-1   max-[600px]:grid-cols-[repeat(1_,1fr)] ">
+                <div class="bg-white dark:bg-zinc-800 p-4 w-[45%] max-sm:w-[100%] max-sm:mb-4 max-sm:rounded-3xl max-md:w-[100%] max-md:mb-4 max-md:rounded-3xl max-lg:w-[55%] max-lg:rounded-l-3xl max-xl:w-[55%]">
                     <div class="flex items-center bg-primary p-2 rounded-md">
                     <img className='w-[1.4rem] mr-2' src={Lupa} alt="" />
                         <input class="bg-transparent text-white placeholder-white flex-1 outline-none" type="text" placeholder="Buscar"  />
                     </div>
                     <div class="mt-4 space-y-2">
+                        
                         <a href='#' class="flex items-left justify-normal border-b hover:bg-zinc-200">
                             <img class="rounded-full w-[20%] p-[0.5rem]" src={Profile} alt="User Icon"  />
                             <div className='grid'>
@@ -103,20 +81,20 @@ export function Entrada() {
                     </div>
                 </div>
 
-                <div class="w-3/4 bg-white dark:bg-zinc-900 p-5 border-l-4 rounded-r-3xl">
+                <div class="w-3/4 bg-white dark:bg-zinc-900 p-5 border-l-4 rounded-r-3xl max-sm:w-[100%] max-sm:rounded-3xl">
                     <div class="border-b pb-5 mb-5">
-                        <h1 class="font-bold text-xl text-zinc-900 dark:text-white">
+                        <h1 class="font-bold text-[clamp(0.9rem,_1rem,_1.25rem)] text-zinc-900 dark:text-white">
                         Juan Antonio Vargas Arias ha enviado un correo de información para solicitar una beca en
                         la Universidad de Costa Rica.
                         </h1>
                         <div className='flex mt-4'>
-                            <img class="rounded-full w-[12%]" src={Profile} alt="User Icon"  />
-                            <p class="text-sm text-zinc-600 dark:text-zinc-400 p-4">De Juan Antonio Vargas Arias. el 24/04/2024 18:04</p>
+                            <img class="rounded-full w-[12%] max-sm:w-[25%]" src={Profile} alt="User Icon"  />
+                            <p class="text-[clamp(0.5rem,_0.8rem,_1rem)] text-zinc-600 dark:text-zinc-400 p-4">De Juan Antonio Vargas Arias. el 24/04/2024 18:04</p>
                         </div>
                         
                     </div>
                     <div class="text-zinc-900 dark:text-white leading-relaxed">
-                        <p>
+                        <p className='text-[clamp(0.5rem,_0.8rem,_1rem)]'>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                         ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
                         ullamco laboris nisi ut aliquip ex ea commodo consequat.

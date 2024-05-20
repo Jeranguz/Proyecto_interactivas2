@@ -1,8 +1,15 @@
 import { SideBar } from './SideBar';
 import Profile from '../assets/imgs/profile.png';
 import { Entrada } from './comunicate_components/Entrada';
+import { Enviados } from './comunicate_components/Enviados';
+import { Redactar } from './comunicate_components/Redactar';
+import { Perfil } from './Perfil';
+
+import { useState, useEffect, useRef } from 'react';
 
 export function Comunicados() {
+
+  const [isVisible, setIsVisible] = useState(false);
   return (
     <>
         <div className='w-[90%] laptop:w-[77%]  m-auto mt-2 '>
@@ -11,14 +18,38 @@ export function Comunicados() {
             <div className='flex items-center gap-4'>
               <div className='text-end'>
                 <h2 className='font-bold'>Jason</h2>
-                <p>Jason_morales@gmail.com</p>
+                <p className='text-[clamp(0.5rem,_0.8rem,_1.1rem)]'>Jason_morales@gmail.com</p>
               </div>
-              <img className='w-[2.688rem] h-[2.688rem]' src={Profile} alt="" />
+              <a href='./AppProfile'>
+                <img className='w-[2.688rem] h-[2.688rem]'  src={Profile} alt="" />
+              </a>
+              
             </div>
 
           </div>
-          <div>
-            <Entrada/>
+          <div className='flex w-[100%] mt-4 mb-4 max-sm:grid max-[768px]:grid max-lg:grid laptop:grid-cols-[repeat(2_,1fr)] grid-cols-1 max-[600px]:grid-cols-[repeat(1_,1fr)]'>
+            <div class='w-1/4 max-sm:w-[100%] max-sm:rounded-3xl max-sm:mb-4 max-[768px]:w-[100%] max-md:rounded-3xl max-md:mb-4 max-lg:w-[100%] max-lg:rounded-3xl max-lg:mb-4 bg-white dark:bg-zinc-900 p-5 rounded-l-3xl'>
+              <div class='flex items-center space-x-2 border-b pb-5 mb-5'>
+                <span class='font-medium text-zinc-700'>Jason_morales@gmail.com</span>
+              </div>
+              <div class='space-y-2'>
+                <div>
+                  <button class='w-full text-left p-2 hover:text-blue-500 rounded hover:bg-primary'>Entrada
+                  </button>
+                </div>
+                <div>
+                  <button class='w-full text-left p-2 hover:text-blue-500 rounded hover:bg-primary'>Redactar
+                  </button>
+                </div>
+                <div>
+                  <button class='w-full text-left p-2 hover:text-blue-500 rounded hover:bg-primary'>Enviados
+                  </button>
+                </div>
+              </div>
+            </div>
+            < Entrada/>
+            {/*<Enviados/>*/}
+            {/*<Redactar/>*/}
           </div>
             
         </div>
