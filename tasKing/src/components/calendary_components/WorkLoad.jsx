@@ -1,30 +1,8 @@
+import { useTaskProgress } from '../hooks/useTaskProgress';
 import '../../index.css';
 export function WorkLoad({ tasks }) {
 
-    let finalPercentaje = 0;
-    if (tasks.length >= 8) {
-        finalPercentaje = 135;
-    } else {
-        let percentaje = (tasks.length / 8);
-        let diference = 135 - (-45);
-        let difPercetaje = diference * percentaje
-        finalPercentaje = -45 + difPercetaje;
-    }
-    let barWidth = finalPercentaje+"deg";
-    let loadText = "";
-    let loadColor = "";
-
-    if (finalPercentaje <= 15) {
-        loadText = "Bajo 😂";
-        loadColor = "bg-green-500";
-    } else if (finalPercentaje >= 15 && finalPercentaje <= 75) {
-        loadText = "Medio 😐";
-        loadColor = "bg-yellow-500";
-    } else if (finalPercentaje >= 75) {
-        loadText = "Alto 💀";
-        loadColor = "bg-red-500";
-    }
-    console.log(tasks.length, finalPercentaje, barWidth)
+    const { barWidth, loadText, loadColor } = useTaskProgress(tasks);
 
     return (
         <div className=' bg-textWhite  px-8 py-5 rounded-3xl w-full grid items-center'>
