@@ -19,7 +19,8 @@ export function PaginaCalendario({eventList, setEventList}) {
     
     return (
         <>
-                <div className='w-[90%] laptop:w-[77%]  m-auto mt-2 '>
+                {/* <div className='w-[90%] laptop:w-[77%]  m-auto mt-2 '> */}
+            <div className='w-[75vw] h-[90vh] sm:w-[77vw] ml-[20vw] sm:ml-[21.5vw]  mt-2'>
                     <div className=' flex justify-between  m-auto mt-6' >
                         <h1 className='text-[clamp(1rem,_2.9vw,_3.75rem)] font-bold'>Calendario</h1>
                         <div className='flex items-center gap-4'>
@@ -34,7 +35,7 @@ export function PaginaCalendario({eventList, setEventList}) {
 
                 </div>
                 {/* grid-rows-[13rem,13rem,20rem] */}
-                <div className="grid laptop:grid-cols-[repeat(4_,1fr)] md:grid-cols-3 grid-cols-1 gap-4 mt-8 h-[80vh] ">
+                <div className="grid laptop:grid-cols-[repeat(4_,1fr)] md:grid-cols-3 grid-cols-1 gap-[1.5rem] mt-8 h-[80vh] ">
                     <Calendario eventList={eventList} dateManager={handleDateClickAndSelect} />
                     <Progress eventList={eventList} />
                     <WorkLoad tasks={eventList} />

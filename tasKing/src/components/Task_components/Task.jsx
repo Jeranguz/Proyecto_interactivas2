@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Photo from '../../assets/imgs/seminary.jpg'
 import '../../index.css'
 import { useSeparateDate } from '../hooks/useSeparateDate'
@@ -20,9 +21,9 @@ export function Task({ id, title, start, img }) {
                 <p className='font-bold text-sm text-hourText'>Hora: {hora}</p>
             </div>
             <div className='px-6 mt-4 mb-8 flex justify-between'>
-            <a className='py-3 px-6 text-sm bg-textWhite border-[3px] border-secondary rounded-xl transform transition hover:bg-primary hover:text-textWhite' href="">Completada</a>
+            <button className='py-3 px-6 text-sm bg-textWhite border-[3px] border-secondary rounded-xl transform transition hover:bg-primary hover:text-textWhite' href=''>Completada</button>
 
-            <a className='py-3 px-9 text-sm bg-textWhite border-[3px] border-secondary rounded-xl transform transition hover:bg-primary hover:text-textWhite' href="">Ver mas</a>
+            <Link className='py-3 px-9 text-sm bg-textWhite border-[3px] border-secondary rounded-xl transform transition hover:bg-primary hover:text-textWhite' to="/Detalles">Ver mas</Link>
             </div>
             
         </div>

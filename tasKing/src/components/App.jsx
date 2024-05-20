@@ -34,6 +34,7 @@ export function App() {
             <Route path='/PaginaComunicados' element={<Comunicados />} />
             <Route path='/AppProfile' element={<AppProfile />} />
             <Route path='/tareas' element={<PaginaTareas eventList={eventList} setEventList={setEventList} />} />
+            <Route path='/Detalles' element={<PaginaDetalles />} />
             <Route path='/' element={<DashBoard />} />
           </Routes>
         </Router>
