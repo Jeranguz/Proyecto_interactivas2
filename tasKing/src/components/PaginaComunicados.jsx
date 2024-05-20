@@ -1,14 +1,13 @@
-import { Calendario } from './Calendario';
-import { Perfil } from './Perfil';
 import { SideBar } from './SideBar';
 import Profile from '../assets/imgs/profile.png';
+import { Entrada } from './comunicate_components/Entrada';
 
-export function AppProfile() {
+export function Comunicados() {
   return (
     <>
         <div className='w-[90%] laptop:w-[77%]  m-auto mt-2 '>
           <div className=' flex justify-between  m-auto mt-6' >
-            <h1 className='text-[clamp(1rem,_2.9vw,_3.75rem)] font-bold'>Perfil Usuario</h1>
+            <h1 className='text-[clamp(1rem,_2.9vw,_3.75rem)] font-bold'>Comunicados</h1>
             <div className='flex items-center gap-4'>
               <div className='text-end'>
                 <h2 className='font-bold'>Jason</h2>
@@ -19,7 +18,7 @@ export function AppProfile() {
 
           </div>
           <div>
-            <Perfil/>
+            <Entrada/>
           </div>
             
         </div>
