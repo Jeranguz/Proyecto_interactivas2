@@ -19,22 +19,27 @@ export function PaginaTareas (){
                             </a>
                         </div>
 
-                    </div>
-                    {/* grid-rows-[13rem,13rem,20rem] */}
-                    <div className="grid laptop:grid-cols-[repeat(4_,1fr)] md:grid-cols-3 grid-cols-1 gap-4 mt-8 h-[80vh] ">
-                        <div className="col-[1/5] bg-textWhite m-auto w-full h-full mt-0 rounded-3xl md:p-8 overflow-scroll pt-4">
-                            <div className="grid grid-cols-[repeat(auto-fit,minmax(316px,1fr))] place-items-center gap-y-8">
-                                <Task />
-                                <Task />
-                                <Task />
-                                <Task />
-                                <Task />
-                                <Task />
-                                <Task />
-                            </div>
-                        </div>
+            </div>
+            {/* grid-rows-[13rem,13rem,20rem] */}
+            <div className="grid laptop:grid-cols-[repeat(4_,1fr)] md:grid-cols-3 grid-cols-1 gap-4 mt-8 h-[80vh] ">
+                <div className="col-[1/5] bg-textWhite m-auto w-full h-full mt-0 rounded-3xl md:p-8 overflow-scroll pt-4">
+                    <div className="grid grid-cols-[repeat(auto-fit,minmax(316px,1fr))] place-items-center gap-y-8">
+                        {eventList.sort((a, b) => {
+                            // Convertir las fechas de inicio a objetos Date para poder compararlas
+                            const dateA = new Date(a.start);
+                            const dateB = new Date(b.start);
+                            // Comparar las fechas y retornar el resultado de la comparación
+                            return dateA - dateB;
+                        })
+                            .filter(evento => evento.status)
+                            .map(evento => (
+                                <Task key={evento.id} id={evento.id} title={evento.title} start={evento.start} img={evento.image} />
+                            ))}
+
                     </div>
                 </div>
-            
+            </div>
+        </div>
+
     )
 }

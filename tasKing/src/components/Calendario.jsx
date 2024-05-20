@@ -1,6 +1,8 @@
 import '../index.css';
 
 import { useState, useEffect, useRef } from 'react';
+import { useDateClickHandler } from './hooks/useDateClickHandler';
+import { useEventClickHandler } from './hooks/useEventClickHandler';
 
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
@@ -8,32 +10,14 @@ import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 
 
-export function Calendario() {
+export function Calendario( {eventList, dateManager}) {
 
-    const [eventList, setEventList] = useState([]); // Agrega el estado para el nombre del evento
+    // const [eventList, setEventList] = useState([]); // Agrega el estado para el nombre del evento
 
-    const handleDateClickAndSelect = (arg) => {
-        const title = window.prompt("Por favor, ingresa el nombre del evento:");
-        const calendarApi = arg.view.calendar;
+    // const handleDateClickAndSelect = useDateClickHandler(eventList, setEventList);
 
-        if (title) {
-            if (arg.start != arg.end) { // Manejar selección de rango
-                const newEvent = {
-                    id: eventList.length + 1,
-                    title,
-                    start: arg.startStr,
-                    end: arg.endStr,
-                }
-                setEventList([...eventList, newEvent]);
-                console.log("Hola mundo")
-                
-            } else { // Manejar clic en una fecha individual
-                const newEvent = {id: eventList.length + 1, title, start: arg.dateStr };
-                setEventList([...eventList, newEvent]);
-            }
-        }
-        calendarApi.unselect(); // Limpiar la selección
-    }
+    // const handleEventClick = useEventClickHandler(eventList, setEventList);
+
     console.log(eventList);
     //Para una sola fecha
     // const handleDateClick = (arg) => {
@@ -62,13 +46,13 @@ export function Calendario() {
     // }
 
     //Para eliminar
-    const handleEventClick = (clickInfo) => {
-        if (window.confirm("¿Estás seguro de que quieres eliminar este evento?")) {
-            const updatedEvents = eventList.filter(event => event.id != clickInfo.event.id);
-            setEventList(updatedEvents); // Actualizar la lista de eventos eliminando el evento clickeado
-        }
-    }
     
+    // const handleEventClick = (clickInfo) => {
+    //     if (window.confirm("¿Estás seguro de que quieres eliminar este evento?")) {
+    //         const updatedEvents = eventList.filter(event => event.id != clickInfo.event.id);
+    //         setEventList(updatedEvents); // Actualizar la lista de eventos eliminando el evento clickeado
+    //     }
+    // }
 
     // const handleDateClick = (arg) => {
     //     const eventName = window.prompt("Por favor, ingresa el nombre del evento:");
@@ -97,9 +81,9 @@ export function Calendario() {
                     events={eventList}
                     eventContent={renderEventContent}
                     // dateClick={handleDateClickAndSelect}
-                    select={handleDateClickAndSelect}
+                    select={dateManager}
                     editable={true}
-                    eventClick={handleEventClick}
+                    // eventClick={handleEventClick}
                     nowIndicator={true}
                     dayMaxEvents={3}
                     fixedWeekCount={false}
