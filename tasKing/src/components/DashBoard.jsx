@@ -29,7 +29,7 @@ export function DashBoard() {
 
 
                     <div className=" max-h-[7300px] space-x-1 w-full h-full sm:bg-textWhite rounded-3xl sm:h-full col-span-1 sm:col-span-7 sm:row-span-3">
-                        <div className='h-[]'>
+                        <div className='h-full'>
                             <Calendario />
                         </div>
 

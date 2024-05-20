@@ -4,7 +4,7 @@ import { Task } from "./Task_components/Task";
 
 
 
-export function PaginaTareas (){
+export function PaginaTareas ({ eventList, setEventList }){
     return(
                 <div className='w-[90%] laptop:w-[77%]  m-auto mt-2 '>
                     <div className=' flex justify-between  m-auto mt-6' >

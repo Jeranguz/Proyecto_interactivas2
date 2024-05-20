@@ -23,7 +23,7 @@ export function Modal({ closeModal, setEventList, eventList }) {
             start: `${startDate}T${startTime}`,
             end: `${endDate}T${endTime}`,
             image,
-            status: false
+            status: true
         };
         setEventList([...eventList, newEvent]);
         closeModal();
