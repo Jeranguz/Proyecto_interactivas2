@@ -16,7 +16,7 @@ const options = [
     { 'name': 'Dashboard', 'img': PaginaPrincipal, 'href': '/Dashboard' },
     { 'name': 'Notificaciones', 'img': Notificaciones, 'href': '/Paginanotificaciones' },
     { 'name': 'Calendario', 'img': Calendario, 'href': '/PaginaCalendario' },
-    { 'name': 'Comunicados', 'img': Comunicados, 'href': '/comunicados' },
+    { 'name': 'Comunicados', 'img': Comunicados, 'href': '/PaginaComunicados' },
     { 'name': 'Eventos', 'img': Eventos, 'href': '/eventos' },
     { 'name': 'Tareas', 'img': Tareas, 'href': '/tareas' },
 ];

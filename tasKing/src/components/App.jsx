@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { PaginaTareas } from './PaginaTareas';
 import { PaginaDetalles } from './PaginaDetalles';
+import { Comunicados } from './PaginaComunicados';
 
 
 
@@ -22,6 +23,7 @@ export function App() {
             <Route path='/DashBoard' element={<DashBoard />} />
             <Route path='/PaginaNotificaciones' element={<PaginaNotificaciones />} />
             <Route path='/PaginaCalendario' element={<PaginaCalendario />} />
+            <Route path='/PaginaComunicados' element={<Comunicados />} />
             <Route path='/AppProfile' element={<AppProfile />} />
             <Route path='/tareas' element={<PaginaTareas />} />
             <Route path='/' element={<DashBoard />} />
