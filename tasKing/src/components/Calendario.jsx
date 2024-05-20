@@ -98,7 +98,7 @@ function renderEventContent(eventInfo) {
     return (
       <>
         <b>{eventInfo.timeText}</b>
-        <i>{eventInfo.event.title}</i>
+        <i className='overflow-hidden'>{eventInfo.event.title}</i>
       </>
     )
   }

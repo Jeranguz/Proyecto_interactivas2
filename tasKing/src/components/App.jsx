@@ -11,11 +11,15 @@ import { PaginaTareas } from './PaginaTareas';
 import { PaginaDetalles } from './PaginaDetalles';
 import { Comunicados } from './PaginaComunicados';
 import { useState } from 'react';
+import { useFetchData } from './hooks/useFetchData';
+
 
 
 
 export function App() {
+
   const [eventList, setEventList] = useState([]);
+  useFetchData('../../data.json', setEventList);
   console.log(eventList)
 
   return (
