@@ -24,7 +24,7 @@ export function App() {
 
   return (
     <>
-      <div className='flex h-full'>
+      <div className='flex '>
         <Router>
           <SideBar />
           <Routes>

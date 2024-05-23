@@ -6,12 +6,14 @@ import { DayTasksBento } from './Bento_Componentes/DayTasksBento';
 import { ProgressBento } from './Bento_Componentes/ProgressBento';
 import { WorkLoadBento } from './Bento_Componentes/WorkLoadBento';
 
+
+
 export function DashBoard() {
     return (
         <>
-            <div className='w-[75vw] h-[90vh] sm:w-[77vw] ml-[20vw] sm:ml-[21.5vw]  mt-2'>
-                <div className=' flex justify-between  mt-[4vh]' >
-                    <h1 className='text-[10vw] xl:text-[6vh] font-bold'>Bienvenido, Jason!</h1>
+            <div className='m-[1.5rem]'>
+                <div className=' flex justify-between  ' >
+                    <h1 className='text-[6vw] lg:text-[6vh] font-bold'>Bienvenido, Jason!</h1>
 
                     <div className='flex items-center gap-4'>
 

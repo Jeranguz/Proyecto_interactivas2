@@ -23,9 +23,7 @@ export function Comunicados() {
               <a href='./AppProfile'>
                 <img className='w-[2.688rem] h-[2.688rem]'  src={Profile} alt="" />
               </a>
-              
             </div>
-
           </div>
           <div className='flex w-[100%] mt-4 mb-4 max-sm:grid max-[768px]:grid max-lg:grid laptop:grid-cols-[repeat(2_,1fr)] grid-cols-1 max-[600px]:grid-cols-[repeat(1_,1fr)]'>
             <div class='w-1/4 max-sm:w-[100%] max-sm:rounded-3xl max-sm:mb-4 max-[768px]:w-[100%] max-md:rounded-3xl max-md:mb-4 max-lg:w-[100%] max-lg:rounded-3xl max-lg:mb-4 bg-white dark:bg-zinc-900 p-5 rounded-l-3xl'>
