@@ -9,29 +9,29 @@ import { useDateClickHandler } from './hooks/useDateClickHandler';
 import { Modal } from "./calendary_components/Modal";
 
 
-export function PaginaCalendario({eventList, setEventList}) {
+export function PaginaCalendario({ eventList, setEventList }) {
     const [showModal, setShowModal] = useState(false);
     const handleDateClickAndSelect = useDateClickHandler(eventList, setEventList, setShowModal);
     const closeModal = () => {
         setShowModal(false);
     };
-    
-    
+
+
     return (
         <>
-                {/* <div className='w-[90%] laptop:w-[77%]  m-auto mt-2 '> */}
-                <div className='m-[1.5rem]'>
-                    <div className=' flex justify-between  m-auto mt-6' >
-                        <h1 className='text-[clamp(1rem,_2.9vw,_3.75rem)] font-bold'>Calendario</h1>
-                        <div className='flex items-center gap-4'>
-                            <div className='text-end'>
-                                <h2 className="font-bold">Jason</h2>
-                                <p>Jason_morales@gmail.com</p>
-                            </div>
-                            <a href='./AppProfile'>
-                                <img className='w-[2.688rem] h-[2.688rem]'  src={Profile} alt="" />
-                            </a>
+            {/* <div className='w-[90%] laptop:w-[77%]  m-auto mt-2 '> */}
+            <div className='m-[1.5rem]'>
+                <div className=' flex justify-between  m-auto mt-6' >
+                    <h1 className='text-[clamp(1rem,_2.9vw,_3.75rem)] font-bold'>Calendario</h1>
+                    <div className='flex items-center gap-4'>
+                        <div className='text-end'>
+                            <h2 className="font-bold">Jason</h2>
+                            <p>Jason_morales@gmail.com</p>
                         </div>
+                        <a href='./AppProfile'>
+                            <img className='w-[2.688rem] h-[2.688rem]' src={Profile} alt="" />
+                        </a>
+                    </div>
 
                 </div>
                 {/* grid-rows-[13rem,13rem,20rem] */}
@@ -42,7 +42,7 @@ export function PaginaCalendario({eventList, setEventList}) {
                     <DayTasks />
                 </div>
                 {showModal && (
-                    <Modal closeModal={closeModal} setEventList={setEventList} eventList={eventList}/>
+                    <Modal closeModal={closeModal} setEventList={setEventList} eventList={eventList} />
                 )}
             </div>
         </>
