@@ -12,8 +12,6 @@ import DashBoardB from '../assets/imgs/DashBoardBlaco.png'
 import DashBoardM from '../assets/imgs/DashBoardMorado.png'
 import TareasB from '../assets/imgs/TareasBlanco.png'
 import TareasM from '../assets/imgs/TareasMorado.png'
-import ComunicadoB from '../assets/imgs/NotificacionesBlanco.png'
-import ComunicadoM from '../assets/imgs/NotificacionesMorado.png'
 import Logo from '../assets/imgs/logo-svg.png'
 import Settings from '../assets/imgs/settings.png'
 import Lupa from '../assets/imgs/lupa.png'
@@ -24,7 +22,6 @@ import NotiM from '../assets/imgs/NotificacionMorado.png'
 
 const options = [
     { 'name': 'Dashboard', 'img': DashBoardB, 'imgHover': DashBoardM, 'href': '/Dashboard' },
-    { 'name': 'Notificaciones', 'img': ComunicadoB, 'imgHover': ComunicadoM, 'href': '/Paginanotificaciones' },
     { 'name': 'Calendario', 'img': CalendarioB, 'imgHover': CalendarioM, 'href': '/PaginaCalendario' },
     { 'name': 'Comunicados', 'img': NotiB, 'imgHover': NotiM, 'href': '/PaginaComunicados' },
     { 'name': 'Eventos', 'img': EventosB, 'imgHover': EventosM, 'href': '/eventos' },
@@ -50,26 +47,27 @@ export function SideBar() {
                         </div>
                     </form>
                 </div>
-                <div className=' gap-[1.5vw] laptop:gap-0 flex justify-center items-center lg:flex-col'>
-                    {options.map(option => {
-                        const [isHovered, setIsHovered] = useState(false);
-
-                        return (
-                            <Link
-                                to={option.href}
-                                className='w-[15vw] lg:w-full flex flex-row  justify-center lg:justify-start gap-[1.5vw] bg-primary p-[1.5vw] rounded-2xl lg:mt-5 hover:bg-white text-white hover:text-primary'
-                                onMouseEnter={() => setIsHovered(true)}
-                                onMouseLeave={() => setIsHovered(false)}
-                            >
-                                <img
-                                    className='self-center w-[4vw] lg:w-[1.5vw]'
-                                    src={isHovered ? option.imgHover : option.img}
-                                    alt=""
-                                />
-                                <p className='font-bree text-[clamp(.5rem,_1.2vw,_1.375rem)] hidden laptop:block'>{option.name}</p>
-                            </Link>
-                        );
-                    })}
+                <div className='p-0 mx-[2.5vw] '>
+                    <div className='  laptop:gap-0 flex justify-center items-center lg:flex-col '>
+                        {options.map(option => {
+                            const [isHovered, setIsHovered] = useState(false);
+                            return (
+                                <Link
+                                    to={option.href}
+                                    className='w-[18vw] lg:w-full flex flex-row  justify-center lg:gap-[1.5vw] bg-primary py-[2vw] rounded-2xl lg:mt-7 hover:bg-white text-white hover:text-primary'
+                                    onMouseEnter={() => setIsHovered(true)}
+                                    onMouseLeave={() => setIsHovered(false)}
+                                >
+                                    <img
+                                        className='self-center w-[4vw] lg:w-[1.5vw]'
+                                        src={isHovered ? option.imgHover : option.img}
+                                        alt=""
+                                    />
+                                    <p className='font-bree text-[clamp(.5rem,_1.2vw,_1.375rem)] hidden laptop:block'>{option.name}</p>
+                                </Link>
+                            );
+                        })}
+                    </div>
                 </div>
             </div>
         </div>

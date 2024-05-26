@@ -12,6 +12,7 @@ import { PaginaDetalles } from './PaginaDetalles';
 import { Comunicados } from './PaginaComunicados';
 import { useState } from 'react';
 import { useFetchData } from './hooks/useFetchData';
+import { Navbar } from './Navbar';
 
 
 
@@ -27,18 +28,18 @@ export function App() {
       <div className='flex  '>
         <Router>
           <SideBar />
-         
-            <Routes>
-              <Route path='/DashBoard' element={<DashBoard />} />
-              <Route path='/PaginaNotificaciones' element={<PaginaNotificaciones />} />
-              <Route path='/PaginaCalendario' element={<PaginaCalendario eventList={eventList} setEventList={setEventList} />} />
-              <Route path='/PaginaComunicados' element={<Comunicados />} />
-              <Route path='/AppProfile' element={<AppProfile />} />
-              <Route path='/tareas' element={<PaginaTareas eventList={eventList} setEventList={setEventList} />} />
-              <Route path='/Detalles' element={<PaginaDetalles />} />
-              <Route path='/' element={<DashBoard />} />
-            </Routes>
-          
+
+          <Routes>
+            <Route path='/DashBoard' element={<DashBoard />} />
+            <Route path='/PaginaNotificaciones' element={<PaginaNotificaciones />} />
+            <Route path='/PaginaCalendario' element={<PaginaCalendario eventList={eventList} setEventList={setEventList} />} />
+            <Route path='/PaginaComunicados' element={<Comunicados />} />
+            <Route path='/AppProfile' element={<AppProfile />} />
+            <Route path='/tareas' element={<PaginaTareas eventList={eventList} setEventList={setEventList} />} />
+            <Route path='/Detalles' element={<PaginaDetalles />} />
+            <Route path='/' element={<DashBoard />} />
+          </Routes>
+
         </Router>
       </div>
     </>
