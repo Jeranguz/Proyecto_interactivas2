@@ -33,7 +33,8 @@ export function App() {
             <Route path='/PaginaCalendario' element={<PaginaCalendario eventList={eventList} setEventList={setEventList}/>} />
             <Route path='/PaginaComunicados' element={<Comunicados />} />
             <Route path='/AppProfile' element={<AppProfile />} />
-            <Route path='/tareas' element={<PaginaTareas eventList={eventList} setEventList={setEventList} />} />
+            <Route path='/Tareas' element={<PaginaTareas eventList={eventList} setEventList={setEventList} title={'Tareas'} />} />
+            <Route path='/Eventos' element={<PaginaTareas eventList={eventList} setEventList={setEventList} title={'Eventos'} />} />
             <Route path='/Detalles' element={<PaginaDetalles />} />
             <Route path='/' element={<DashBoard />} />
           </Routes>

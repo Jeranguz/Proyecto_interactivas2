@@ -4,27 +4,27 @@ import { Task } from "./Task_components/Task";
 
 
 
-export function PaginaTareas ({ eventList, setEventList }){
-    return(
-                // <div className='w-[90%] laptop:w-[77%]  m-auto mt-2 '>
-            <div className='w-[75vw] h-[90vh] sm:w-[77vw] ml-[20vw] sm:ml-[21.5vw]  mt-2'>
+export function PaginaTareas({ eventList, setEventList, title }) {
+    return (
+        // <div className='w-[90%] laptop:w-[77%]  m-auto mt-2 '>
+        <div className=' m-auto laptop:my-0 laptop:w-[75vw] w-[90vw] md:mb-0 mb-[50rem]'>
 
-                    <div className=' flex justify-between  m-auto mt-6' >
-                        <h1 className='text-[clamp(1rem,_2.9vw,_3.75rem)] font-bold'>Tareas</h1>
-                        <div className='flex items-center gap-4'>
-                            <div className='text-end'>
-                                <h2 className="font-bold">Jason</h2>
-                                <p>Jason_morales@gmail.com</p>
-                            </div>
-                            <a href='./AppProfile'>
-                                <img className='w-[2.688rem] h-[2.688rem]'  src={Profile} alt="" />
-                            </a>
-                        </div>
+            <div className=' flex justify-between  m-auto mt-6' >
+                <h1 className='text-[clamp(1rem,_2.9vw,_3.75rem)] font-bold'>{title}</h1>
+                <div className='flex items-center gap-4'>
+                    <div className='text-end'>
+                        <h2 className="font-bold">Jason</h2>
+                        <p>Jason_morales@gmail.com</p>
+                    </div>
+                    <a href='./AppProfile'>
+                        <img className='w-[2.688rem] h-[2.688rem]' src={Profile} alt="" />
+                    </a>
+                </div>
 
             </div>
             {/* grid-rows-[13rem,13rem,20rem] */}
             <div className="grid laptop:grid-cols-[repeat(4_,1fr)] md:grid-cols-3 grid-cols-1 gap-4 mt-8 h-[80vh] ">
-                <div className="col-[1/5] bg-textWhite m-auto w-full h-full mt-0 rounded-3xl md:p-8 overflow-scroll pt-4">
+                <div className="col-[1/5] bg-textWhite m-auto w-full h-full mt-0 rounded-3xl md:p-8 laptop:overflow-auto pt-4 ">
                     <div className="grid grid-cols-[repeat(auto-fit,minmax(316px,1fr))] place-items-center gap-y-8">
                         {eventList.sort((a, b) => {
                             // Convertir las fechas de inicio a objetos Date para poder compararlas

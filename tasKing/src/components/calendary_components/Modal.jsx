@@ -33,7 +33,10 @@ export function Modal({ closeModal, setEventList, eventList }) {
             <div className="fixed inset-0 bg-black bg-opacity-50 z-50" ></div>
             <div className="fixed inset-0 flex items-center justify-center z-50 ">
                 <div className="bg-white p-4 rounded-3xl shadow-lg grid md:w-[40rem] md:p-8">
-                    <h2 className="text-primary font-bold text-4xl text-center">Agregar actividad</h2>
+                    <div className='relative'>
+                        <h2 className="text-primary font-bold text-[clamp(1.5rem,_2vw,_2.25rem)] text-center">Agregar actividad</h2>
+                        <button className='absolute top-1 right-0 font-bold' onClick={closeModal}>X</button>
+                    </div>
                     <input type="text" placeholder="Nombre de la actividad" value={title} onChange={(e) => setTitle(e.target.value)} className="w-full p-2 my-2 border border-gray-300 rounded" />
                     <input type="text" placeholder="Descripción" value={description} onChange={(e) => setDescription(e.target.value)} className="w-full p-2 my-2 border border-gray-300 rounded" />
                     <label htmlFor="">Fecha de inicio</label>
@@ -47,7 +50,7 @@ export function Modal({ closeModal, setEventList, eventList }) {
                     </div>
                     <input type="file" id="imageInput" onChange={handleImageChange}  />
                     {image && <img src={image} alt="Preview" className="mt-2 w-full max-h-[15rem] rounded object-cover" />}
-                    <button className="bg-primary text-white py-4 rounded-md mt-4" onClick={handleSave}>Cerrar</button>
+                    <button className="bg-primary text-white py-4 rounded-md mt-4" onClick={handleSave}>Guardar</button>
                 </div>
             </div>
         </>

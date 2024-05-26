@@ -14,7 +14,7 @@ export const useGetEventsPercetaje = (eventList, firstDay, lastDay) => {
       const totalEventosSemana = eventosSemana.length;
       const porcentajeCompletados = totalEventosSemana > 0 ? (eventosCompletados / totalEventosSemana) * 100 : 0;
       console.log(porcentajeCompletados);
-      return porcentajeCompletados;
+      return Math.round(porcentajeCompletados);
 }
 
     
