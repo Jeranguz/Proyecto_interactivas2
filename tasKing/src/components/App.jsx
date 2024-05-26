@@ -30,7 +30,7 @@ export function App() {
           <SideBar />
 
           <Routes>
-            <Route path='/DashBoard' element={<DashBoard />} />
+            <Route path='/DashBoard' element={<DashBoard eventList={eventList}/>} />
             <Route path='/PaginaNotificaciones' element={<PaginaNotificaciones />} />
             <Route path='/PaginaCalendario' element={<PaginaCalendario eventList={eventList} setEventList={setEventList} />} />
             <Route path='/PaginaComunicados' element={<Comunicados />} />
