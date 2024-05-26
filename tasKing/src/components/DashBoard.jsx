@@ -12,15 +12,10 @@ import { Navbar } from './Navbar';
 export function DashBoard() {
     return (
         <>
-            <Navbar />
-            <div className=' m-auto mt-[15vw] laptop:my-0 laptop:w-[75vw] w-[90vw] md:mb-0 mb-[50rem]'>
-
-
-
                 <div className=" h-[80vh] w-full grid grid-cols-[repeat(1_,1fr)] grid-rows-[repeat(5_,1fr)]  gap-[1.5vw]  lg:grid-cols-[repeat(16_,1fr)] lg:gap-[1.5vw]">
 
 
-                    <div className=" space-x-1 w-full h-full sm:bg-textWhite rounded-3xl lg:h-full col-span-1 lg:col-span-7 lg:row-span-3">
+                    <div className=" space-x-1 w-full  sm:bg-textWhite rounded-3xl lg:h-full col-span-1 lg:col-span-7 lg:row-span-3">
                         <Calendario />
 
                     </div>
@@ -60,9 +55,6 @@ export function DashBoard() {
                         <WorkLoadBento tasks={[1, 2, 3, 4, 5, 6, 7]} />
                     </div>
                 </div>
-            </div>
-
-
         </>
     );
 }

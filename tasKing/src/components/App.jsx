@@ -28,20 +28,24 @@ export function App() {
       <div className='flex  '>
         <Router>
           <SideBar />
-
-          <Routes>
-            <Route path='/DashBoard' element={<DashBoard />} />
-            <Route path='/PaginaNotificaciones' element={<PaginaNotificaciones />} />
-            <Route path='/PaginaCalendario' element={<PaginaCalendario eventList={eventList} setEventList={setEventList} />} />
-            <Route path='/PaginaComunicados' element={<Comunicados />} />
-            <Route path='/AppProfile' element={<AppProfile />} />
-            <Route path='/tareas' element={<PaginaTareas eventList={eventList} setEventList={setEventList} />} />
-            <Route path='/Detalles' element={<PaginaDetalles />} />
-            <Route path='/' element={<DashBoard />} />
-          </Routes>
-
+          <Navbar />
+          <div className=' m-auto mt-[15vw] laptop:my-0 laptop:w-[75vw] w-[90vw] md:mb-0 mb-[50rem]'>
+            <Routes>
+              <Route path='/DashBoard' element={<DashBoard />} />
+              <Route path='/PaginaNotificaciones' element={<PaginaNotificaciones />} />
+              <Route path='/PaginaCalendario' element={<PaginaCalendario eventList={eventList} setEventList={setEventList} />} />
+              <Route path='/PaginaComunicados' element={<Comunicados />} />
+              <Route path='/AppProfile' element={<AppProfile />} />
+              <Route path='/tareas' element={<PaginaTareas eventList={eventList} setEventList={setEventList} />} />
+              <Route path='/Detalles' element={<PaginaDetalles />} />
+              <Route path='/' element={<DashBoard />} />
+            </Routes>
+          </div>
         </Router>
-      </div>
+
+
+
+      </div >
     </>
   );
 }
