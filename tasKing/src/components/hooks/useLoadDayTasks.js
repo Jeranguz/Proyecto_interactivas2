@@ -1,7 +1,12 @@
 import { SpecificTask } from "../calendary_components/SpecificTask";
 
-export const useLoadDayTasks = ( eventList ) => {
-    if (window.innerHeight > 800) {
+export const useLoadDayTasks = ( eventList, isDashboard ) => {
+    console.log( isDashboard );
+    if(isDashboard){
+        let extra = eventList.length - 8;
+        console.log("8");
+        return {tasks:eventList.slice(0, 8), extra};
+    }else if (window.innerHeight > 800) {
         let extra = eventList.length - 3;
         console.log(extra);
         return {tasks:eventList.slice(0, 3), extra};

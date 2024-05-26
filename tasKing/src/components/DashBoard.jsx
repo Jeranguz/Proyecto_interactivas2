@@ -10,6 +10,7 @@ import { Navbar } from './Navbar';
 
 
 export function DashBoard({eventList}) {
+
     return (
         <>
             <Navbar />
@@ -51,7 +52,7 @@ export function DashBoard({eventList}) {
                     </div>
 
                     <div className="w-full h-full laptop:bg-textWhite rounded-3xl laptop:h-full laptop:col-start-13 laptop:col-span-4 laptop:row-span-full">
-                        <DayTasks eventList={eventList}/>
+                        <DayTasks eventList={eventList} isDashboard={true}/>
                     </div>
                     <div className="w-full h-full laptop:bg-textWhite rounded-3xl laptop:h-full laptop:row-start-4 laptop:col-span-6 laptop:row-span-full">
                         <ProgressBento progreso={100} />

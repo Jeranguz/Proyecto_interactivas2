@@ -41,7 +41,7 @@ export function PaginaCalendario({ eventList, setEventList }) {
                     <Calendario eventList={eventList} dateManager={handleDateClickAndSelect} />
                     <Progress eventList={eventList} />
                     <WorkLoad tasks={eventList} />
-                    <DayTasks tasks={eventList} eventList={eventList} />
+                    <DayTasks tasks={eventList} eventList={eventList} isDashboard={false}/>
                 </div>
                 {showModal && (
                     <Modal closeModal={closeModal} setEventList={setEventList} eventList={eventList} />
