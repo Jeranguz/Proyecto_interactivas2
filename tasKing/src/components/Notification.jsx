@@ -6,7 +6,7 @@ import Menu from '../assets/imgs/Menu.png';
 export function Noti() {
     const [isOpenLeft, setIsOpenLeft] = useState(false);
     const [isOpenRight, setIsOpenRight] = useState(false);
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 1050); // Detecta si la pantalla es móvil
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 1050);
 
     const toggleMenuLeft = () => {
         setIsOpenLeft(!isOpenLeft);
@@ -45,12 +45,10 @@ export function Noti() {
         // Implementación de la función Mostrar no destacadas
     };
 
-    // Función para manejar el cambio en el tamaño de la ventana
     const handleResize = () => {
         setIsMobile(window.innerWidth < 1050);
     };
 
-    // Agregar un event listener para detectar cambios en el tamaño de la ventana
     useEffect(() => {
         window.addEventListener('resize', handleResize);
         return () => {
@@ -78,11 +76,11 @@ export function Noti() {
                         </div>
                     ) : (
                         <>
-                            <button className="text-sm w-20 font-semibold rounded-lg bg-primary text-textWhite hover:opacity-50" onClick={selectAll}>Todas</button>
-                            <button className="text-sm w-24 font-semibold rounded-lg bg-primary text-textWhite hover:opacity-50" onClick={showRead}>Leídas</button>
-                            <button className="text-sm w-24 font-semibold rounded-lg bg-primary text-textWhite hover:opacity-50" onClick={showUnread}>No leídas</button>
-                            <button className="text-sm w-28 font-semibold rounded-lg bg-primary text-textWhite hover:opacity-50" onClick={highLighted}>Destacadas</button>
-                            <button className="text-sm w-32 font-semibold rounded-lg bg-primary text-textWhite hover:opacity-50" onClick={noHighLighted}>No destacadas</button>
+                            <button className="text-sm w-20 py-1 font-semibold rounded-lg bg-primary text-textWhite hover:opacity-50" onClick={selectAll}>Todas</button>
+                            <button className="text-sm w-24 py-1 font-semibold rounded-lg bg-primary text-textWhite hover:opacity-50" onClick={showRead}>Leídas</button>
+                            <button className="text-sm w-24 py-1 font-semibold rounded-lg bg-primary text-textWhite hover:opacity-50" onClick={showUnread}>No leídas</button>
+                            <button className="text-sm w-28 py-1 font-semibold rounded-lg bg-primary text-textWhite hover:opacity-50" onClick={highLighted}>Destacadas</button>
+                            <button className="text-sm w-32 py-1 font-semibold rounded-lg bg-primary text-textWhite hover:opacity-50" onClick={noHighLighted}>No destacadas</button>
                         </>
                     )}
                 </div>
@@ -95,8 +93,10 @@ export function Noti() {
                         {isOpenRight && (
                             <div className="absolute top-0 right-0 mt-8 w-48 bg-white border border-gray-300 rounded-lg shadow-lg z-20">
                                 <button className="block w-full py-2 text-left px-4 hover:bg-gray-100">Leídas Todas</button>
-                                <button className="block w-full py-2 text-left px-4 hover:bg-gray-100">Eliminar Todas</button>
+                                <button className="block w-full py-2 text-left px-4 hover:bg-gray-100">No leídas Todas</button>
                                 <button className="block w-full py-2 text-left px-4 hover:bg-gray-100">Destacar Todas</button>
+                                <button className="block w-full py-2 text-left px-4 hover:bg-gray-100">No destacar Todas</button>
+                                <button className="block w-full py-2 text-left px-4 hover:bg-gray-100">Eliminar Todas</button>
                             </div>
                         )}
                         <div onClick={handleOutsideClick} className={`fixed inset-0 ${isOpenRight ? 'block' : 'hidden'}`} />
@@ -108,9 +108,9 @@ export function Noti() {
     );
 }
 
-export function Notification({ title, body, time }) {
+export function Notification({ title, body, time}) {
 
-    const [highlighted] = useState(false);
+    const [highlighted, setHighlighted] = useState(false);
     const [read, setRead] = useState(false);
     const [showOptions, setShowOptions] = useState(false);
     
@@ -118,57 +118,42 @@ export function Notification({ title, body, time }) {
         setRead(!read);
     };
 
-    const archive = () => {
-        // Implementación de la función de archivar
+    const toggleHighlighted = () => {
+        setHighlighted(!highlighted);
     };
 
     const deleteNotification = () => {
-        // Implementación de la función de borrar
-    };
-
-    const postpone = () => {
-        // Implementación de la función de posponer
+        // Implementación de la función Eliminar notificación
     };
 
     return (
-        <div
-            className={`flex items-center py-4 px-8 border-b border-gray-200 ${highlighted ? 'bg-yellow-100' : ''} ${read ? 'bg-gray-100' : ''}`}
-            onMouseEnter={() => setShowOptions(true)}
-            onMouseLeave={() => setShowOptions(false)}
-        >
-            <div className="flex-shrink-0">
+        <div className={`flex items-center justify-between py-6 px-6 border-b border-gray-200 ${highlighted ? 'bg-yellow-100' : ''} ${read ? 'bg-gray-100' : ''}`} onMouseEnter={() => setShowOptions(true)} onMouseLeave={() => setShowOptions(false)}>
+            <div className="flex items-center w-1/4 gap-2">
                 <input type="checkbox" className="h-5 w-5" />
+                <p className="text-base font-semibold text-gray-800 truncate">{title}</p>
             </div>
-            <div className="ml-4 flex-1">
-                <div className="flex justify-between">
-                    <p className="text-base font-semibold text-gray-800">{title}</p>
-                    <div className="flex gap-2 items-center"></div>
-                </div>
-                <p className="text-sm text-gray-600">{body}</p>
-                <p className="text-xs text-gray-400">{time}</p>
+            <div className="w-1/4 text-center">
+                <p className="text-sm text-gray-600 truncate">{body}</p>
+            </div>
+            <div className="text-right w-1/4">
+                <p className="text-xs text-gray-400 truncate">{time}</p>
             </div>
             <div className={`ml-4 ${showOptions ? 'block' : 'hidden'}`}>
-                <button className="text-gray-500 hover:text-gray-800" onClick={archive}>
-                    <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M3 5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5zm5 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm4 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" clipRule="evenodd" />
+                <button className={`text-gray-800 hover:text-primary ${highlighted ? 'text-yellow-500' : ''}`} onClick={toggleHighlighted}>
+                    <svg className="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M11 9a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z"/>
+                        <path fill-rule="evenodd" d="M9.896 3.051a2.681 2.681 0 0 1 4.208 0c.147.186.38.282.615.255a2.681 2.681 0 0 1 2.976 2.975.681.681 0 0 0 .254.615 2.681 2.681 0 0 1 0 4.208.682.682 0 0 0-.254.615 2.681 2.681 0 0 1-2.976 2.976.681.681 0 0 0-.615.254 2.682 2.682 0 0 1-4.208 0 .681.681 0 0 0-.614-.255 2.681 2.681 0 0 1-2.976-2.975.681.681 0 0 0-.255-.615 2.681 2.681 0 0 1 0-4.208.681.681 0 0 0 .255-.615 2.681 2.681 0 0 1 2.976-2.975.681.681 0 0 0 .614-.255ZM12 6a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" clip-rule="evenodd"/>
+                        <path d="M5.395 15.055 4.07 19a1 1 0 0 0 1.264 1.267l1.95-.65 1.144 1.707A1 1 0 0 0 10.2 21.1l1.12-3.18a4.641 4.641 0 0 1-2.515-1.208 4.667 4.667 0 0 1-3.411-1.656Zm7.269 2.867 1.12 3.177a1 1 0 0 0 1.773.224l1.144-1.707 1.95.65A1 1 0 0 0 19.915 19l-1.32-3.93a4.667 4.667 0 0 1-3.4 1.642 4.643 4.643 0 0 1-2.53 1.21Z"/>
                     </svg>
                 </button>
-                <button className="text-gray-500 hover:text-gray-800" onClick={deleteNotification}>
-                    <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M5 3a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2h3a1 1 0 0 1 0 2h-.586l-1.707 14.465A2 2 0 0 1 13.707 20H6.293a2 2 0 0 1-1.707-3.535L4.586 5H4a1 1 0 0 1 0-2h1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1H10V3z" clipRule="evenodd" />
+                <button className="text-primary hover:opacity-50" onClick={deleteNotification}>
+                    <svg className="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M8.586 2.586A2 2 0 0 1 10 2h4a2 2 0 0 1 2 2v2h3a1 1 0 1 1 0 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V8a1 1 0 0 1 0-2h3V4a2 2 0 0 1 .586-1.414ZM10 6h4V4h-4v2Zm1 4a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Zm4 0a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Z" clip-rule="evenodd"/>
                     </svg>
                 </button>
-                <button
-                    className={`text-gray-500 hover:text-gray-800 ${read ? 'text-green-500' : ''}`}
-                    onClick={toggleRead}
-                >
+                <button className={`text-gray-800 hover:text-primary ${read ? 'text-green-500' : ''}`} onClick={toggleRead}>
                     <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M13.293 6.707a1 1 0 0 0-1.414-1.414L10 8.586 7.707 6.293a1 1 0 1 0-1.414 1.414l3 3a1 1 0 0 0 1.414 0l5-5a1 1 0 0 0 0-1.414z" clipRule="evenodd" />
-                    </svg>
-                </button>
-                <button className="text-gray-500 hover:text-gray-800" onClick={postpone}>
-                    <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M12 9a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm2 2a2 2 0 1 0-4 0 2 2 0 0 0 4 0zm2-8a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v7H2a1 1 0 0 0 0 2h1v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2h1a1 1 0 0 0 0-2h-1V3zm-2 14H5v-2h10v2zm0-4H5V6h10v7zm-2-6a1 1 0 1 0-2 0 1 1 0 0 0 2 0z" clipRule="evenodd" />
                     </svg>
                 </button>
             </div>

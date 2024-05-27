@@ -1,57 +1,21 @@
-import { Notification, Noti } from "./Notification";
-import { SideBar } from "./SideBar";
-import Profile from '../assets/imgs/profile.png';
+import { Notification, Noti } from "./Notification"; 
+import { data } from './noti_Componentes/NotiTable';
 
 export function PaginaNotificaciones() {
     return (
-        <div className='w-[90%] laptop:w-[77%]  m-auto mt-2 '>
-            <div className=' flex justify-between  m-auto mt-6' >
-                <h1 className='text-[clamp(1rem,_2.9vw,_3.75rem)] font-bold'>Notificaciones</h1>
-                <div className='flex items-center gap-4'>
-                    <div className='text-end'>
-                        <h2 className="font-bold">Jason</h2>
-                        <p>Jason_morales@gmail.com</p>
-                    </div>
-                    <img className='w-[2.688rem] h-[2.688rem]' src={Profile} alt="" />
+        <div className=' m-auto laptop:my-0 laptop:w-[75vw] w-[90vw] md:mb-0 mb-[50rem]'>
+            <div className="bg-white rounded-lg my-8">
+                <Noti />
+                <div className="bg-white rounded-lg  h-97 overflow-auto custom-scroll"> 
+                    {data.map((notification) => (
+                        <Notification
+                            key={notification.id}
+                            title={notification.title}
+                            body={notification.body}
+                            time={notification.time}
+                        />
+                    ))}
                 </div>
-            </div>
-            <div className="bg-white rounded-lg mx-8 my-8">
-                <Noti/>
-                <Notification
-                    title="Nuevo mensaje"
-                    body="¡Hola! ¿Cómo estás?"
-                    time="Hace 5 minutos"
-                />
-                <Notification
-                    title="Nuevo mensaje"
-                    body="¡Hola! ¿Cómo estás?"
-                    time="Hace 5 minutos"
-                />
-                <Notification
-                    title="Nuevo mensaje"
-                    body="¡Hola! ¿Cómo estás?"
-                    time="Hace 5 minutos"
-                />
-                <Notification
-                    title="Nuevo mensaje"
-                    body="¡Hola! ¿Cómo estás?"
-                    time="Hace 5 minutos"
-                />
-                <Notification
-                    title="Nuevo mensaje"
-                    body="¡Hola! ¿Cómo estás?"
-                    time="Hace 5 minutos"
-                />
-                <Notification
-                    title="Nuevo mensaje"
-                    body="¡Hola! ¿Cómo estás?"
-                    time="Hace 5 minutos"
-                />
-                <Notification
-                    title="Nuevo mensaje"
-                    body="¡Hola! ¿Cómo estás?"
-                    time="Hace 5 minutos"
-                />
             </div>
         </div>
     );
