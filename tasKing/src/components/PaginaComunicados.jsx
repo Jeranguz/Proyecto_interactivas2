@@ -27,18 +27,7 @@ export function Comunicados() {
   return (
     <>
         <div className='w-[90%] laptop:w-[77%]  m-auto mt-2 '>
-          <div className=' flex justify-between  m-auto mt-6' >
-            <h1 className='text-[clamp(1rem,_2.9vw,_3.75rem)] font-bold'>Comunicados</h1>
-            <div className='flex items-center gap-4'>
-              <div className='text-end'>
-                <h2 className='font-bold'>Jason</h2>
-                <p className='text-[clamp(0.5rem,_0.8rem,_1.1rem)]'>Jason_morales@gmail.com</p>
-              </div>
-              <a href='./AppProfile'>
-                <img className='w-[2.688rem] h-[2.688rem]'  src={Profile} alt="" />
-              </a>
-            </div>
-          </div>
+          
         </div>
         <div className='flex w-[100%] mt-4 mb-4 max-sm:grid max-[768px]:grid max-lg:grid laptop:grid-cols-[repeat(2_,1fr)] grid-cols-1 max-[600px]:grid-cols-[repeat(1_,1fr)]'>
           <div className='w-1/4 max-sm:w-[100%] max-sm:rounded-3xl max-sm:mb-4 max-[768px]:w-[100%] max-md:rounded-3xl max-md:mb-4 max-lg:w-[100%] max-lg:rounded-3xl max-lg:mb-4 bg-white dark:bg-zinc-900 p-5 rounded-l-3xl'>
