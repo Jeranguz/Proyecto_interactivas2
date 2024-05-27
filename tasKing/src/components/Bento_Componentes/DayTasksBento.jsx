@@ -1,29 +1,29 @@
-export function DayTasksBento() {
-    const tasks = [
-        { title: 'Tareas Lectura Seminario', deadline: 'Viernes 12pm' },
-        { title: 'Tareas Lectura Seminario', deadline: 'Viernes 12pm' },
-        { title: 'Tareas Lectura Seminario', deadline: 'Viernes 12pm' },
-        // ... add more tasks as needed
-    ];
+import '../../index.css';
+import { SpecificTaskBento } from './SpecificTaskBento';
+import { useLoadDayTasks } from '../hooks/useLoadDayTasks';
+import { useSeparateDate } from '../hooks/useSeparateDate';
+
+export function DayTasksBento({ eventList, isDashboard }) {
+    const { tasks, extra } = useLoadDayTasks(eventList, isDashboard);
 
     return (
-        <div className="bg-textWhite col-start-4 col-end-5 px-8 py-6 rounded-3xl  row-span-1 h-30 ">
-            <h2 className='text-primary text-[clamp(1rem,_1.5vw,_1.7rem)] font-bold text-center'>Pendientes de hoy</h2>
-            <div>
-                <div>
-                    <img src="" alt="" />
-                </div>
-                <div className='grid gap-[6%] mt-2 w-full'>
-                    {tasks.map((task, index) => (
-                        <div key={index} className='bg-primary text-textWhite px-[2vw] py-[3.5vw] md:py-[2.5vh] rounded-[1.5vh] md:rounded-[1vw] w-full'>
-                            <h3 className='text-[clamp(.3rem,_.6vw,_1rem)] font-semibold truncate'>{task.title}</h3>
-                            <p className='font-bree text-[clamp(.1rem,_.8vw,_1rem)]'>{task.deadline}</p>
-                        </div>
-                    ))}
-
-                    <p className='text-center'>3 mas</p>
+        <div className="bg-textWhite px-[2vh] laptop:px-[1vw] py-[1vh] rounded-3xl ">
+            <h2 className='text-primary text-[3vh] laptop:text-[2vw] font-bold text-center'>Pendientes</h2>
+            <div className='w-full h-full'>
+                <div className='grid gap-[1vh]  '>
+                    
+                        {tasks.map(task => {
+                            const date = new Date(task.start);
+                            const daysOfWeek = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+                            const dayOfWeek = daysOfWeek[date.getDay()];
+                            const { dia, mes, hora } = useSeparateDate(task.start)
+                            return (
+                                <SpecificTaskBento key={task.id} name={task.title} day={dayOfWeek} time={hora} className='w-full h-auto' />
+                            )
+                        })}
+                    <p className='text-center'>{extra} mas</p>
                 </div>
             </div>
         </div>
-    );
+    )
 }

@@ -27,8 +27,12 @@ const options = [
     { 'name': 'Eventos', 'img': EventosB, 'imgHover': EventosM, 'href': '/eventos' },
     { 'name': 'Tareas', 'img': TareasB, 'imgHover': TareasM, 'href': '/tareas' },
 ];
-export function SideBar() {
+export function SideBar({setName}) {
+
+    
+
     return (
+        
 
         <div className=" z-10 bg-primary w-full lg:min-h-screen h-[10vw] flex bottom-0 fixed lg:relative lg:h-full lg:w-[20vw] xl:left-0">
             <div className='p-[1.5vw] self-center'>
@@ -43,23 +47,24 @@ export function SideBar() {
                             <div className='absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none'>
                                 <img className='w-[4vw] sm:w-[2vw]' src={Lupa} alt="" />
                             </div>
-                            <input className=' w-full p-[1.8vw]  ps-14 text-lg rounded-2xl bg-primary sm:bg-secondary outline-none text-purple-500 hover:text-primary ' type="search" placeholder='Search' />
+                            <input className=' w-full p-[1.8vw]  ps-14 text-lg rounded-2xl bg-primary sm:bg-secondary outline-none text-purple-500 hover:text-primary ' type="search" placeholder='' />
                         </div>
                     </form>
                 </div>
-                <div className='p-0 mx-[2.5vw] '>
-                    <div className='  laptop:gap-0 flex justify-center items-center lg:flex-col '>
+                <div className=' mx-[2.5vw] laptop:mx-0 '>
+                    <div className='  laptop:gap-0 flex  lg:flex-col lg:self-start '>
                         {options.map(option => {
                             const [isHovered, setIsHovered] = useState(false);
                             return (
                                 <Link
                                     to={option.href}
-                                    className='w-[18vw] lg:w-full flex flex-row  justify-center lg:gap-[1.5vw] bg-primary py-[2vw] rounded-2xl lg:mt-7 hover:bg-white text-white hover:text-primary'
+                                    onClick={() => setName(option.name)}
+                                    className=' w-[18vw] lg:w-full flex flex-row  justify-center lg:justify-start  bg-primary py-[2vw] rounded-2xl lg:mt-7 hover:bg-white text-white hover:text-primary'
                                     onMouseEnter={() => setIsHovered(true)}
                                     onMouseLeave={() => setIsHovered(false)}
                                 >
                                     <img
-                                        className='self-center w-[4vw] lg:w-[1.5vw]'
+                                        className='lg:mx-[1vw] self-center  w-[4vw] lg:w-[1.5vw]'
                                         src={isHovered ? option.imgHover : option.img}
                                         alt=""
                                     />
