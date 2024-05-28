@@ -25,7 +25,7 @@ export function Navbar() {
     }, [lastScrollTop]);
 
     return (
-        <div className={`fixed top-0 z-50 lg:hidden bg-primary flex w-full h-[10vw] transition-all duration-200 ease-in-out ${isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform -translate-y-full'}`}>
+        <div className={`fixed top-0 z-50 laptop:hidden bg-primary flex w-full h-[10vw] transition-all duration-200 ease-in-out ${isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform -translate-y-full'}`}>
             <div className='flex justify-between items-center m-[5vw] gap-[3vw]'>
                 <img src={Logo} alt="Logo" className='w-[25vw] ' />
 
@@ -39,7 +39,7 @@ export function Navbar() {
                     </form>
                 </div>
                 <Link to='/PaginaNotificaciones' className='flex'>
-                        <img className='self-center w-[5vw] lg:w-[1.5vw]' src={ComunicadoB} alt="" />
+                        <img className='self-center w-[5vw] laptop:w-[1.5vw]' src={ComunicadoB} alt="" />
                         <p className='font-bree text-[clamp(.5rem,_1.2vw,_1.375rem)] hidden laptop:block'>Comunicado</p>
                     </Link>
 

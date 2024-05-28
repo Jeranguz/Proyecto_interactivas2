@@ -12,9 +12,9 @@ export function Perfil() {
 
     return (
         <div>
-            <div className="grid laptop:grid-cols-[repeat(2_,1fr)] grid-cols-1 gap-4 mt-4 h-[80vh] max-sm:grid-cols-[repeat(1_,1fr)] ">
+            <div className="m-auto grid laptop:grid-cols-[repeat(2_,1fr)] grid-cols-1 gap-4 mt-4 h-[80vh] max-sm:grid-cols-[repeat(1_,1fr)] mb-[130vh] sm:mb-0 ">
                 <div>
-                    <div className='laptop:w-[46rem] grid grid-cols-2 max-sm:grid-cols-1 min-[720px]:flex justify-items-center justify-center'>
+                    <div className=' laptop:w-[46rem] grid grid-cols-2 max-sm:grid-cols-1 min-[720px]:flex justify-items-center justify-center'>
                         <div className='rounded-lg overflow-hidden shadow-lg bg-white p-4 relative h-[13.5rem] mb-[1rem]'>
                             <div className='flex items-center space-x-4 mt-[2rem]'>
                                 <div className='relative'>
@@ -104,10 +104,10 @@ export function Perfil() {
                     </div>
                 </div>
 
-                <div className='bg-black shadow-md p-4 rounded-lg w-[100%] h-[100%]'>
-                    <h2 className='text-xl font-semibold mb-4 mt-[0.2rem] text-white'>Próximos Eventos</h2>
-                    <div className='space-y-4 mb-[1.1rem] overflow-y-scroll max-h-[80vh] '>
-                        <div className='bg-primary shadow-lg rounded-lg p-4 mr-2'>
+                <div className='bg-black  shadow-md p-4 rounded-lg laptop:overflow-y-scroll '>
+                    <h2 className='text-xl font-semibold mb-4 mt-[0.2rem] text-white over '>Próximos Eventos</h2>
+                    <div className='space-y-4 mb-[1.1rem] laptop:max-h-[70vh] '>
+                        <div className='bg-primary shadow-lg rounded-lg p-4 mr-2 ' >
                             <h3 className='text-lg font-normal text-white'>Diseño Web</h3>
                             <a href="#"><p className='text-white text-sm'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></a>
                         </div>

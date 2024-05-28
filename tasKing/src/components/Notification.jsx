@@ -61,7 +61,7 @@ export function Noti() {
     return(
         <div className="grid">
             <div className="flex items-center justify-between mx-8 my-8">
-                <div className="flex gap-4 items-center justify-center">
+                <div className="flex gap-4 items-center justify-center laptop:overflow-y-scroll">
                     {isMobile ? (
                         <div className="relative">
                             <button onClick={toggleMenuLeft} className="relative z-10"><img src={Menu} alt="" /></button>
@@ -132,7 +132,7 @@ export function Notification({ title, body, time }) {
 
     return (
         <div
-            className={`flex items-center py-4 px-8 border-b border-gray-200 ${highlighted ? 'bg-yellow-100' : ''} ${read ? 'bg-gray-100' : ''}`}
+            className={` laptop:h-[80%]  flex items-center py-4 px-8 border-b border-gray-200 ${highlighted ? 'bg-yellow-100' : ''} ${read ? 'bg-gray-100' : ''}`}
             onMouseEnter={() => setShowOptions(true)}
             onMouseLeave={() => setShowOptions(false)}
         >

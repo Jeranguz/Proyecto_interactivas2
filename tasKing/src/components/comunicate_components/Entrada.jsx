@@ -7,13 +7,13 @@ export function Entrada() {
         
         <div>
             {/* Seccion de correos */}
-            <div class='w-3/3 flex border-l-4 max-sm:grid max-md:grid laptop:grid-cols-[repeat(2_,1fr)] grid-cols-1   max-[600px]:grid-cols-[repeat(1_,1fr)]'>
+            <div class='  overflow-hidden w-3/3 h-[80vh] flex border-l-4 max-sm:grid max-md:grid laptop:grid-cols-[repeat(2_,1fr)] grid-cols-1   max-[600px]:grid-cols-[repeat(1_,1fr)]'>
                 <div class='bg-white p-4 w-[55%] max-sm:w-[100%] max-sm:mb-4 max-sm:rounded-3xl max-md:w-[100%] max-md:mb-4 max-md:rounded-3xl max-lg:w-[63%] max-lg:rounded-l-3xl max-xl:w-[65%] max-2xl:w-[56%]'>
                     <div class='flex items-center bg-primary p-2 rounded-md'>
                     <img className='w-[1.4rem] mr-2' src={Lupa} alt='' />
                         <input class='bg-transparent text-white placeholder-white flex-1 outline-none' type='text' placeholder='Buscar'/>
                     </div>
-                    <div class='mt-4 space-y-2 overflow-y-scroll max-h-[80vh]'>
+                    <div class='mt-4 space-y-2 overflow-y-scroll h-full'>
                         
                         <a href='#' class='flex items-left justify-normal border-b hover:bg-zinc-200'>
                             <img class='rounded-full w-[20%] p-[0.5rem]' src={Profile} alt='User Icon'/>

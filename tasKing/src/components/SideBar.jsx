@@ -27,44 +27,43 @@ const options = [
     { 'name': 'Eventos', 'img': EventosB, 'imgHover': EventosM, 'href': '/eventos' },
     { 'name': 'Tareas', 'img': TareasB, 'imgHover': TareasM, 'href': '/tareas' },
 ];
-export function SideBar({setName}) {
+export function SideBar() {
 
     
 
     return (
         
 
-        <div className=" z-10 bg-primary w-full lg:min-h-screen h-[10vw] flex bottom-0 fixed lg:relative lg:h-full lg:w-[20vw] xl:left-0">
+        <div className=" z-10 bg-primary w-full laptop:min-h-screen h-[10vw] flex bottom-0 fixed laptop:relative laptop:h-full laptop:w-[20vw] xl:left-0">
             <div className='p-[1.5vw] self-center'>
-                <div className=" hidden lg:block">
+                <div className=" hidden laptop:block">
                     <img className='w-[12vw]' src={Logo} alt="" />
                     <a href="#">
                     </a>
                 </div>
-                <div className='hidden lg:block'>
+                <div className='hidden laptop:block'>
                     <form className='w-full mt-[3vw]' action="">
                         <div className='relative'>
                             <div className='absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none'>
                                 <img className='w-[4vw] sm:w-[2vw]' src={Lupa} alt="" />
                             </div>
-                            <input className=' w-full p-[1.8vw]  ps-14 text-lg rounded-2xl bg-primary sm:bg-secondary outline-none text-purple-500 hover:text-primary ' type="search" placeholder='' />
+                            <input className=' w-full p-[1.8vw]  ps-14 text-laptop rounded-2xl bg-primary sm:bg-secondary outline-none text-purple-500 hover:text-primary ' type="search" placeholder='' />
                         </div>
                     </form>
                 </div>
                 <div className=' mx-[2.5vw] laptop:mx-0 '>
-                    <div className='  laptop:gap-0 flex  lg:flex-col lg:self-start '>
+                    <div className='  laptop:gap-0 flex  laptop:flex-col laptop:self-start '>
                         {options.map(option => {
                             const [isHovered, setIsHovered] = useState(false);
                             return (
                                 <Link
                                     to={option.href}
-                                    onClick={() => setName(option.name)}
-                                    className=' w-[18vw] lg:w-full flex flex-row  justify-center lg:justify-start  bg-primary py-[2vw] rounded-2xl lg:mt-7 hover:bg-white text-white hover:text-primary'
+                                    className=' w-[18vw] laptop:w-full flex flex-row  justify-center laptop:justify-start  bg-primary py-[2vw] rounded-2xl laptop:mt-7 hover:bg-white text-white hover:text-primary'
                                     onMouseEnter={() => setIsHovered(true)}
                                     onMouseLeave={() => setIsHovered(false)}
                                 >
                                     <img
-                                        className='lg:mx-[1vw] self-center  w-[4vw] lg:w-[1.5vw]'
+                                        className='laptop:mx-[1vw] self-center  w-[4vw] laptop:w-[1.5vw]'
                                         src={isHovered ? option.imgHover : option.img}
                                         alt=""
                                     />
