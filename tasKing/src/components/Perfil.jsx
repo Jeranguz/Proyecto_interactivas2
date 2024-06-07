@@ -12,7 +12,7 @@ export function Perfil() {
 
     return (
         <div>
-            <div className="m-auto grid laptop:grid-cols-[repeat(2_,1fr)] grid-cols-1 gap-4 mt-4 h-[80vh] max-sm:grid-cols-[repeat(1_,1fr)] mb-[130vh] sm:mb-0 ">
+            <div className="m-auto grid laptop:grid-cols-[repeat(2_,1fr)] grid-cols-1 gap-4 mt-4 h-[80vh] max-sm:grid-cols-[repeat(1_,1fr)] mb-[11vh] sm:mb-0 ">
                 <div>
                     <div className=' laptop:w-[46rem] grid grid-cols-2 max-sm:grid-cols-1 min-[720px]:flex justify-items-center justify-center'>
                         <div className='rounded-lg overflow-hidden shadow-lg bg-white p-4 relative h-[13.5rem] mb-[1rem]'>
