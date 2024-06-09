@@ -1,7 +1,7 @@
 export const useSeparateDate = (date)=>{
 let dateTimeString = date;
 
-let [datePart, hourPart]= dateTimeString.split('T');
+let [datePart, hourPart]= dateTimeString.split(' ');
 
 let [year, month, day] = datePart.split('-');
 

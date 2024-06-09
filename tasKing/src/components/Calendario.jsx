@@ -10,7 +10,7 @@ import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 
 
-export function Calendario( {eventList, dateManager}) {
+export function Calendario({ eventList, dateManager }) {
 
     // const [eventList, setEventList] = useState([]); // Agrega el estado para el nombre del evento
 
@@ -46,7 +46,7 @@ export function Calendario( {eventList, dateManager}) {
     // }
 
     //Para eliminar
-    
+
     // const handleEventClick = (clickInfo) => {
     //     if (window.confirm("¿Estás seguro de que quieres eliminar este evento?")) {
     //         const updatedEvents = eventList.filter(event => event.id != clickInfo.event.id);
@@ -61,7 +61,7 @@ export function Calendario( {eventList, dateManager}) {
     //         // Aquí puedes realizar cualquier acción adicional, como agregar el evento a tu lista de eventos
     //     }
     // }
-    
+
     return (
 
         <>
@@ -81,13 +81,14 @@ export function Calendario( {eventList, dateManager}) {
                     events={eventList}
                     eventContent={renderEventContent}
                     // dateClick={handleDateClickAndSelect}
-                    select={dateManager}
+                    // select={dateManager}
+                    dateClick={dateManager}
                     editable={true}
                     // eventClick={handleEventClick}
                     nowIndicator={true}
                     dayMaxEvents={3}
                     fixedWeekCount={false}
-                    
+
                 />
             </div>
         </>
@@ -96,9 +97,11 @@ export function Calendario( {eventList, dateManager}) {
 
 function renderEventContent(eventInfo) {
     return (
-      <>
-        <b>{eventInfo.timeText}</b>
-        <i className='overflow-hidden'>{eventInfo.event.title}</i>
-      </>
+        <>
+            <a href="facebook.com">
+                <b>{eventInfo.timeText}</b>
+                <i className='overflow-hidden'>{eventInfo.event.title}</i>
+            </a>
+        </>
     )
-  }
+}

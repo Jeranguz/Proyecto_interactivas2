@@ -22,7 +22,7 @@ import SignInRegister from './SignInRegister';
 export function App() {
   const [Name, setName] = useState('Dashboard');
   const [eventList, setEventList] = useState([]);
-  useFetchData('../../data.json', setEventList);
+  useFetchData('http://interactivas_backend.test/api/events/all', setEventList);
   console.log(eventList)
 
   return (
