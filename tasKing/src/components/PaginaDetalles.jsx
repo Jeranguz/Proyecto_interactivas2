@@ -119,7 +119,7 @@ export function PaginaDetalles() {
             <div className='flex '>
                 <SideBar />
                 <Navbar />
-                <div className=' mx-[5vw] laptop:mx-[2.5vw]  mt-[7vh] laptop:my-0 laptop:w-[75vw] w-[90vw] sm:mb-0 mb-[55vh] '>
+                <div className=' mx-[5vw] laptop:mx-[2.5vw]  mt-[7vh] laptop:my-0 laptop:w-[74vw] w-[90vw] sm:mb-0 mb-[55vh] '>
 
 
                     <div className='sm:mb-0 mb-[10vh] mx-auto laptop:my-0 laptop:w-[75vw] w-[90vw] '>

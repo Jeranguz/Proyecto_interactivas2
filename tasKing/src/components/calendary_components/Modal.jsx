@@ -4,12 +4,6 @@ import { useFetchOptions } from '../hooks/useFetchOptions';
 
 
 export function Modal({ closeModal, setEventList, eventList }) {
-    // const [title, setTitle] = useState('');
-    // const [description, setDescription] = useState('');
-    // const [startDate, setStartDate] = useState('');
-    // const [startTime, setStartTime] = useState('');
-    // const [endDate, setEndDate] = useState('');
-    // const [endTime, setEndTime] = useState('');
     const [image, setImage] = useState(placeHolder);
     const { tags, categories } = useFetchOptions();
     console.log('tags', tags)
@@ -40,7 +34,8 @@ export function Modal({ closeModal, setEventList, eventList }) {
                         <h2 className="text-primary font-bold text-[clamp(1.5rem,_2vw,_2.25rem)] text-center">Agregar actividad</h2>
                         <button className='absolute top-1 right-0 font-bold' onClick={closeModal}>X</button>
                     </div>
-                    <form action="http://interactivas_backend.test/events/store" method='post' encType='multipart/form-data'>
+                    
+                    <form action="http://interactivas_backend.test/api/events/add" method='post' encType='multipart/form-data'>
                         <label htmlFor="title">Nombre</label>
                         <input type="text" placeholder="Nombre de la actividad" name='title' className="w-full p-2 my-2 border border-gray-300 rounded" />
 
@@ -59,7 +54,7 @@ export function Modal({ closeModal, setEventList, eventList }) {
                             <input type="time" name='end_hour' className="w-full p-2 my-2 border border-gray-300 rounded" />
                         </div>
 
-                        <input type="file" id="imageInput" onChange={handleImageChange} />
+                        <input type="file" id="imageInput" name='image' onChange={handleImageChange} />
 
                         <div className='flex flex-col sm:flex-row gap-x-4 w-full'>
                             {image && <img src={image} alt="Preview" className="mt-2 w-auto max-h-[10rem] rounded object-cover" />}
@@ -84,7 +79,6 @@ export function Modal({ closeModal, setEventList, eventList }) {
                         <input type="hidden" name='user' value='1'/>
                         <input type="hidden" name='status' value='1'/>
                         <input type="hidden" name='course' value='1'/>
-                        <input type="hidden" name="_token" value='csrf_token' />
                         <button className="bg-primary text-white py-4 rounded-md mt-4 w-full" type='submit'>Guardar</button>
                     </form>
                 </div>

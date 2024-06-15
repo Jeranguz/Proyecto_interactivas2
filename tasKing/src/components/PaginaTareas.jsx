@@ -12,7 +12,7 @@ export function PaginaTareas({ eventList, setEventList, title }) {
         <div className='flex '>
                 <SideBar />
                 <Navbar />
-                <div className=' mx-[5vw] laptop:mx-[2.5vw]  mt-[7vh] laptop:my-0 laptop:w-[75vw] w-[90vw] laptop:mb-0 mb-[25vh] '>
+                <div className=' mx-[5vw] laptop:mx-[2.5vw]  mt-[7vh] laptop:my-0 laptop:w-[74vw] w-[90vw] laptop:mb-0 mb-[25vh] '>
                     <Info Name={title} />
         <div className=' m-auto laptop:my-0 laptop:w-[75vw] w-[90vw] md:mb-0 mb-[50rem]'>
             {/* grid-rows-[13rem,13rem,20rem] */}

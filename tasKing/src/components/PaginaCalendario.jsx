@@ -28,7 +28,7 @@ export function PaginaCalendario({ eventList, setEventList }) {
             <div className='flex '>
                 <SideBar />
                 <Navbar />
-                <div className=' mx-[5vw] laptop:mx-[2.5vw]  mt-[7vh] laptop:my-0 laptop:w-[75vw] w-[90vw] laptop:mb-0 mb-[25vh] '>
+                <div className=' mx-[5vw] laptop:mx-[2.5vw]  mt-[7vh] laptop:my-0 laptop:w-[74vw] w-[90vw] laptop:mb-0 mb-[25vh] '>
                     <Info Name="Calendario" />
                     <div className="grid laptop:grid-cols-[repeat(4_,1fr)] md:grid-cols-3 grid-cols-1 gap-[1.5rem]  h-[80vh] ">
                         <Calendario eventList={eventList} dateManager={handleDateClickAndSelect} />
