@@ -5,6 +5,67 @@ import { Link } from 'react-router-dom';
 function SignInRegister() {
     const [isRegister, setIsRegister] = useState(false);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+    const [loginError, setLoginError] = useState('');
+    const [nameRegister, setNameRegister] = useState('');
+    const [lastNameRegister, setLastNameRegister] = useState('');
+    const [userNameRegister, setUserNameRegister] = useState('');
+    const [emailRegister, setEmailRegister] = useState('');
+    const [passwordRegister, setPasswordRegister] = useState('');
+    const [emailLogin, setEmailLogin] = useState('');
+    const [passwordLogin, setPasswordLogin] = useState('');
+    
+    const submitRegister = (event) =>{
+        event.preventDefault();
+        fetch('http://interactivas_backend.test/api/auth/register',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name: nameRegister,
+                lastname: lastNameRegister,
+                username: userNameRegister,
+                email: emailRegister,
+                password: passwordRegister
+            }),
+        })
+        .then(response=> response.json())
+        .then(data => {
+            if(data.success){
+                localStorage.setItem('token', data.token)
+                
+                window.location.href = 'http://localhost:5173/DashBoard'
+                console.log(data)
+            }
+        })
+        .catch(error => console.error('Error: ', error))
+    }
+
+    const submitLogin = (event) =>{
+        event.preventDefault();
+        fetch('http://interactivas_backend.test/api/auth/login',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email: emailLogin,
+                password: passwordLogin
+            }),
+        })
+        .then(response=> response.json())
+        .then(data => {
+            if(data.success){
+                localStorage.setItem('token', data.token)
+                window.location.href = 'http://localhost:5173/DashBoard'
+                console.log(data)
+            }else{
+                setLoginError(data.errors)
+            }
+        })
+        .catch(error => console.error('Error: ', error, ' ', data))
+    }
  
     const handleClick = () => {
         setIsRegister(!isRegister);
@@ -35,23 +96,28 @@ function SignInRegister() {
                 <h1 className="text-[2vw] md:text-base">{isRegister ? 'No te has registrado?' : 'Ya tienes una cuenta?'}</h1>
             </div>
         </div>
- 
-        <form className="flex flex-col justify-center items-center space-y-4 sm:gap-y-[2vh] text-[2vw] md:text-base z-10 mt-8 md:mt-16">
+        <div>
+            <h1 className='text-red-600'>{loginError}</h1>
+        </div>
+        <form onSubmit={submitLogin} className="flex flex-col justify-center items-center space-y-4 sm:gap-y-[2vh] text-[2vw] md:text-base z-10 mt-8 md:mt-16 md:row-start-1">
             <h1 className="text-2xl md:text-4xl text-center text-primary font-bold">Bienvenido de vuelta a Tasking</h1>
             <p className="text-sm md:text-base text-center text-gray-600">Ingresa tus datos para iniciar sesión</p>
-            <input type="email" placeholder="Email" className="p-2 w-[80vw] md:w-[30vw]" />
-            <input type="password" placeholder="Password" className="p-2 w-[80vw] md:w-[30vw]" />
-            <Link to="/DashBoard" className="p-2 bg-primary text-white w-[80vw] md:w-[30vw] block text-center">Register</Link>
+            <input onChange={(e)=> setEmailLogin(e.target.value)} type="email" placeholder="Email" className="p-2 w-[80vw] md:w-[30vw]" name='email'/>
+            <input onChange={(e)=> setPasswordLogin(e.target.value)} type="password" placeholder="Password" className="p-2 w-[80vw] md:w-[30vw]" name='password'/>
+            <button type='submit' className="p-2 bg-primary text-white w-[80vw] md:w-[30vw] block text-center">Login</button>
             <p className="text-sm md:text-base text-center text-gray-600">¿No tienes una cuenta? <a href="#" className="text-primary underline" onClick={handleClick}>Regístrate</a></p>
         </form>
  
-        <form className="flex flex-col justify-center items-center space-y-4 sm:gap-y-[2vh] text-[2vw] md:text-base z-10 mt-8">
+        <form onSubmit={submitRegister} className="flex flex-col justify-center items-center space-y-4 sm:gap-y-[2vh] text-[2vw] md:text-base z-10 mt-8 md:row-start-1">
             <h1 className="text-2xl md:text-4xl text-center text-primary font-bold">Crea tu propia aventura</h1>
             <p className="text-sm md:text-base text-center text-gray-600">Ingresa tus datos para registrarte</p>
-            <input type="text" placeholder="Name" className="p-2 w-[80vw] md:w-[30vw]" />
-            <input type="email" placeholder="Email" className="p-2 w-[80vw] md:w-[30vw]" />
-            <input type="password" placeholder="Password" className="p-2 w-[80vw] md:w-[30vw]" />
-            <Link to="/DashBoard" className="p-2 bg-primary text-white w-[80vw] md:w-[30vw] block text-center">Sign In</Link>
+            <input onChange={(e)=> setNameRegister(e.target.value)} type="text" placeholder="Name" className="p-2 w-[80vw] md:w-[30vw]" name='name' />
+            <input onChange={(e)=> setLastNameRegister(e.target.value)} type="text" placeholder="Last Name" className="p-2 w-[80vw] md:w-[30vw]" name='lastname' />
+            <input onChange={(e)=> setUserNameRegister(e.target.value)} type="text" placeholder="UserName" className="p-2 w-[80vw] md:w-[30vw]" name='username' />
+            <input onChange={(e)=> setEmailRegister(e.target.value)} type="email" placeholder="Email" className="p-2 w-[80vw] md:w-[30vw]" name='email' />
+            <input onChange={(e)=> setPasswordRegister(e.target.value)} type="password" placeholder="Password" className="p-2 w-[80vw] md:w-[30vw]" name='password' />
+            <button type='submit' className="p-2 bg-primary text-white w-[80vw] md:w-[30vw] block text-center">Register</button>
+
             <p className="text-sm md:text-base text-center text-gray-600">¿Ya tienes una cuenta? <a href="#" className="text-primary underline" onClick={handleClick}>Inicia sesión</a></p>
         </form>
     </div>

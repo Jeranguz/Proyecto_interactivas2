@@ -75,9 +75,9 @@ import { useLocation } from "react-router-dom";
 import { useFetchEvent } from './hooks/useFetchEvent';
 import { Loading } from './Loading';
 
-export function PaginaDetalles() {
+export function PaginaDetalles({user}) {
     const location = useLocation();
-    console.log(location.state);
+    console.log('estate: ',location.state);
     const { data, isLoading }  = useFetchEvent(location.state)
     
 
@@ -123,7 +123,7 @@ export function PaginaDetalles() {
 
 
                     <div className='sm:mb-0 mb-[10vh] mx-auto laptop:my-0 laptop:w-[75vw] w-[90vw] '>
-                    <Info Name="Detalles" />
+                    <Info Name="Detalles" user={user}/>
 
                         {/* grid-rows-[13rem,13rem,20rem] */}
                         { isLoading ? <Loading/>:showDetails(data)}

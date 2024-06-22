@@ -9,7 +9,7 @@ import { Navbar } from './Navbar';
 
 import { useState, useEffect, useRef } from 'react';
 
-export function Comunicados() {
+export function Comunicados({user}) {
 
   const [currentSection, setCurrentSection] = useState('entrada'); // Estado para manejar la sección visible
 
@@ -33,7 +33,7 @@ export function Comunicados() {
         <Navbar />
 
         <div className='mt-[8vh] laptop:mt-0 w-[90%]  laptop:w-[75%]  m-auto '>
-          <Info Name="Comunicados" />
+          <Info Name="Comunicados" user={user}/>
           <div className='grid w-full laptop:mb-0 laptop:flex  mt-4 mb-[15vh] laptop:grid-cols-1'>
             <div className='w-1/4 max-sm:w-full max-sm:rounded-3xl max-sm:mb-4  max-md:rounded-3xl max-md:mb-4 max-laptop:w-[100%] max-laptop:rounded-3xl max-laptop:mb-4 bg-white p-5 rounded-l-3xl'>
               <div className='flex items-center space-x-2 border-b pb-5 mb-5 '>

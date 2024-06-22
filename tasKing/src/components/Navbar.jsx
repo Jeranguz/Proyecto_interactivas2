@@ -5,7 +5,7 @@ import ComunicadoB from '../assets/imgs/NotificacionesBlanco.png'
 import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 
-export function Navbar() {
+export function Navbar({user}) {
     const [lastScrollTop, setLastScrollTop] = useState(0);
     const [isVisible, setIsVisible] = useState(true);
 

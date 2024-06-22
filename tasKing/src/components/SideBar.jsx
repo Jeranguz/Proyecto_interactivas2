@@ -21,11 +21,11 @@ import NotiB from '../assets/imgs/NotificacionBlanco.png'
 import NotiM from '../assets/imgs/NotificacionMorado.png'
 
 const options = [
-    { 'name': 'Dashboard', 'img': DashBoardB, 'imgHover': DashBoardM, 'href': '/Dashboard' },
-    { 'name': 'Calendario', 'img': CalendarioB, 'imgHover': CalendarioM, 'href': '/PaginaCalendario' },
-    { 'name': 'Comunicados', 'img': NotiB, 'imgHover': NotiM, 'href': '/PaginaComunicados' },
-    { 'name': 'Eventos', 'img': EventosB, 'imgHover': EventosM, 'href': '/eventos' },
-    { 'name': 'Tareas', 'img': TareasB, 'imgHover': TareasM, 'href': '/tareas' },
+    { 'id':1, 'name': 'Dashboard', 'img': DashBoardB, 'imgHover': DashBoardM, 'href': '/Dashboard' },
+    { 'id':2, 'name': 'Calendario', 'img': CalendarioB, 'imgHover': CalendarioM, 'href': '/PaginaCalendario' },
+    { 'id':3, 'name': 'Comunicados', 'img': NotiB, 'imgHover': NotiM, 'href': '/PaginaComunicados' },
+    { 'id':4, 'name': 'Eventos', 'img': EventosB, 'imgHover': EventosM, 'href': '/eventos' },
+    { 'id':5, 'name': 'Tareas', 'img': TareasB, 'imgHover': TareasM, 'href': '/tareas' },
 ];
 export function SideBar() {
 
@@ -57,6 +57,7 @@ export function SideBar() {
                             const [isHovered, setIsHovered] = useState(false);
                             return (
                                 <Link
+                                    key={option.id}
                                     to={option.href}
                                     className=' w-[18vw] laptop:w-full flex flex-row  justify-center laptop:justify-start  bg-primary py-[2vw] rounded-2xl laptop:mt-7 hover:bg-white text-white hover:text-primary'
                                     onMouseEnter={() => setIsHovered(true)}
