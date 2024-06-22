@@ -35,11 +35,9 @@ export function App() {
     <>
       <div className='flex '>
         <Router>
+        
           <Routes>
           <Route path='/' element={<SignInRegister/>} />
-          </Routes>
-        { isLoading ? <Loading/>:
-          <Routes>
 
             <Route path='/DashBoard' element={<DashBoard eventList={eventList} user={user} />} />
             <Route path='/PaginaNotificaciones' element={<PaginaNotificaciones user={user} />} />
@@ -52,7 +50,6 @@ export function App() {
             <Route path='/' element={<SignInRegister />} />
           </Routes>
 
-      }
         </Router>
       </div>
 
