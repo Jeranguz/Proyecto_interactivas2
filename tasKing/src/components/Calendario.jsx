@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom'
+
+
 import '../index.css';
 
 import { useState, useEffect, useRef } from 'react';
@@ -83,7 +86,7 @@ export function Calendario({ eventList, dateManager }) {
                     // dateClick={handleDateClickAndSelect}
                     // select={dateManager}
                     dateClick={dateManager}
-                    editable={true}
+                    editable={false}
                     // eventClick={handleEventClick}
                     nowIndicator={true}
                     dayMaxEvents={3}
@@ -98,10 +101,10 @@ export function Calendario({ eventList, dateManager }) {
 function renderEventContent(eventInfo) {
     return (
         <>
-            <a href="facebook.com">
+            <Link to={'/Detalles'} state={eventInfo.event.id}>
                 <b>{eventInfo.timeText}</b>
                 <i className='overflow-hidden'>{eventInfo.event.title}</i>
-            </a>
+            </Link>
         </>
     )
 }

@@ -8,7 +8,7 @@ export function Task({ id, title, start, img }) {
     const { dia, mes, hora } = useSeparateDate(start)
     // console.log(day, month, hour)
     return (
-        <div className="border-[0.5px] border-[border] w-80 rounded-3xl overflow-hidden">
+        <div className="border-[0.5px] h-72 rounded-3xl overflow-hidden m-auto md:m-0">
             <div className='relative'>
                 <img className='object-cover h-28 w-full' src={'http://interactivas_backend.test/storage/images/'+img} alt="" />
                 <span className='absolute top-[5rem] left-4 bg-secondary px-4 grid items-center rounded-xl'>
@@ -20,10 +20,10 @@ export function Task({ id, title, start, img }) {
                 <h2 className='font-bold text-lg mb-2'>{title}</h2>
                 <p className='font-bold text-sm text-hourText'>Hora: {hora}</p>
             </div>
-            <div className='px-6 mt-4 mb-8 flex justify-between'>
-            <button className='py-3 px-6 text-sm bg-textWhite border-[3px] border-secondary rounded-xl transform transition hover:bg-primary hover:text-textWhite' href=''>Completada</button>
+            <div className='px-6 mt-4 mb-8 flex gap-4 justify-between'>
+            <button className='py-3 px-4 text-sm bg-textWhite border-[3px] w-full border-secondary rounded-xl transform transition hover:bg-primary hover:text-textWhite' href=''>Completada</button>
 
-            <Link state={eventid} className='py-3 px-9 text-sm bg-textWhite border-[3px] border-secondary rounded-xl transform transition hover:bg-primary hover:text-textWhite' to="/Detalles">Ver mas</Link>
+            <Link state={eventid} className='text-center py-3 px-7 text-sm w-full bg-textWhite border-[3px] border-secondary rounded-xl transform transition hover:bg-primary hover:text-textWhite' to="/Detalles">Ver mas</Link>
             </div>
             
         </div>

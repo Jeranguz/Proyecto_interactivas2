@@ -3,14 +3,15 @@ import { useMemo } from 'react';
 export const useTaskProgress = (tasks) => {
 
   let today = new Date().toISOString().split('T')[0];
-  console.log(today);
-  const tasksForToday = tasks.filter(task => task.start.split('T')[0] === today);
+  const tasksForToday = tasks.filter(task => task.start.split(' ')[0] == today);
+  console.log(tasksForToday)
   const { barWidth, loadText, loadColor } = useMemo(() => {
     let finalPercentage = 0;
     if (tasksForToday.length >= 8) {
       finalPercentage = 135;
     } else {
       let percentage = tasksForToday.length / 8;
+      console.log("porcertaje " + tasksForToday)
       let difference = 135 - (-45);
       let diffPercentage = difference * percentage;
       finalPercentage = -45 + diffPercentage;

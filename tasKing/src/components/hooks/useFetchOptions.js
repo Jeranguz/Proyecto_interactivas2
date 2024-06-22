@@ -3,6 +3,7 @@ import { useState, useEffect } from'react';
 export const useFetchOptions = () => {
     const [tags, setTags] = useState([]);
     const [categories, setCategories] = useState([]);
+    const [courses, setCourses] = useState([]);
 
     const getInfo = async () =>{
         try{
@@ -13,6 +14,10 @@ export const useFetchOptions = () => {
             const response2 = await fetch('http://interactivas_backend.test/api/categories/all');
             const categories = await response2.json();
             setCategories(categories);
+
+            const response3 = await fetch('http://interactivas_backend.test/api/courses/all');
+            const courses = await response3.json();
+            setCourses(courses);
         }catch(err){
             console.log(err);
         }
@@ -24,6 +29,7 @@ export const useFetchOptions = () => {
     
       return {
         tags,
-        categories
+        categories,
+        courses
       }
 }

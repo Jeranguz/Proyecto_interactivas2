@@ -5,26 +5,26 @@ import { useFetchOptions } from '../hooks/useFetchOptions';
 
 export function Modal({ closeModal, setEventList, eventList }) {
     const [image, setImage] = useState(placeHolder);
-    const { tags, categories } = useFetchOptions();
+    const { tags, categories, courses } = useFetchOptions();
     console.log('tags', tags)
     const handleImageChange = (e) => {
         const selectedImage = e.target.files[0];
         setImage(URL.createObjectURL(selectedImage));
         console.log(image)
     }
-    const handleSave = () => {
-        const newEvent = {
-            id: eventList.length + 1,
-            title,
-            description,
-            start: `${startDate}T${startTime}`,
-            end: `${endDate}T${endTime}`,
-            image,
-            status: true
-        };
-        setEventList([...eventList, newEvent]);
-        closeModal();
-    };
+    // const handleSave = () => {
+    //     const newEvent = {
+    //         id: eventList.length + 1,
+    //         title,
+    //         description,
+    //         start: `${startDate}T${startTime}`,
+    //         end: `${endDate}T${endTime}`,
+    //         image,
+    //         status: true
+    //     };
+    //     setEventList([...eventList, newEvent]);
+    //     closeModal();
+    // };
     return (
         <>
             <div className="fixed inset-0 bg-black bg-opacity-50 z-50" ></div>
@@ -57,7 +57,7 @@ export function Modal({ closeModal, setEventList, eventList }) {
                         <input type="file" id="imageInput" name='image' onChange={handleImageChange} />
 
                         <div className='flex flex-col sm:flex-row gap-x-4 w-full'>
-                            {image && <img src={image} alt="Preview" className="mt-2 w-auto max-h-[10rem] rounded object-cover" />}
+                            {image && <img src={image} alt="Preview" className="mt-2 w-auto max-h-[15rem] rounded object-cover" />}
                             <div className='w-full'>
 
                                 <label htmlFor="tag">Etiqueta</label>
@@ -74,11 +74,17 @@ export function Modal({ closeModal, setEventList, eventList }) {
                                     ))}
                                 </select>
 
+                                <label htmlFor="course">Categoria</label>
+                                <select className="w-full p-2 my-2 border border-gray-300 rounded" name="course">
+                                    {courses.map(course => (
+                                        <option key={course.id} value={course.id}>{course.name}</option>
+                                    ))}
+                                </select>
+
                             </div>
                         </div>
                         <input type="hidden" name='user' value='1'/>
                         <input type="hidden" name='status' value='1'/>
-                        <input type="hidden" name='course' value='1'/>
                         <button className="bg-primary text-white py-4 rounded-md mt-4 w-full" type='submit'>Guardar</button>
                     </form>
                 </div>

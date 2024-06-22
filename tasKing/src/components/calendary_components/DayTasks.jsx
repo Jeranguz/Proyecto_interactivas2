@@ -17,7 +17,7 @@ export function DayTasks({ eventList, isDashboard}) {
                         const dayOfWeek = daysOfWeek[date.getDay()];
                         const {dia, mes, hora } = useSeparateDate(task.start)
                         return (
-                            <SpecificTask key={task.id} name={task.title} day={dayOfWeek} time={hora} />
+                            <SpecificTask key={task.id} id={task.id} name={task.title} day={dayOfWeek} time={hora} />
                         )
                     })}
                     <p className='text-center'>{extra} mas</p>
