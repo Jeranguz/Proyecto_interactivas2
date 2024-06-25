@@ -7,6 +7,11 @@ import { Navbar } from "./Navbar";
 
 
 export function PaginaTareas({ eventList, setEventList, title, user }) {
+    if(title == 'Tareas'){
+       eventList = eventList.filter(event=>event.tag == "Tarea")
+    }else if(title == 'Eventos'){
+        eventList = eventList.filter(event=>event.tag == "Evento")
+    }
     return (
         // <div className='w-[90%] laptop:w-[77%]  m-auto mt-2 '>
         <div className='flex '>

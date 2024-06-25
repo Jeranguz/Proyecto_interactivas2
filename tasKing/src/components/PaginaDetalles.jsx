@@ -96,6 +96,7 @@ export function PaginaDetalles({user}) {
                                         <li>Fecha y hora: {event[0].start}</li>
                                         <li>Categoria: {event[0].category} </li>
                                         <li>Etiqueta: {event[0].tag} </li>
+                                        <li>Curso: {event[0].course}</li>
                                         <li>Porcentaje: {event[0].percentage}%</li>
                                     </ul>
                                     <h2 className='font-medium text-primary text-[clamp(1.5rem,10vw_,_1.875rem)]  mt-8'>Description</h2>
