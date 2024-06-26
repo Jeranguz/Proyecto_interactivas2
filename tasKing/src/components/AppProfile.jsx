@@ -6,7 +6,7 @@ import { Info } from './info';
 import { Navbar } from './Navbar';
 import { Link } from 'react-router-dom';
 
-export function AppProfile({user}) {
+export function AppProfile({user, eventList}) {
   const logout = async () => {
     try {
       const response = await fetch('http://interactivas_backend.test/api/auth/logout', {
@@ -39,7 +39,7 @@ export function AppProfile({user}) {
           <div className=' m-auto laptop:my-0 laptop:w-[75vw] w-[90vw] md:mb-[17rem] mb-[37rem] '>
             <Info Name="Perfil" user={user}/>
     <button onClick={logout}>Cerrar sesion</button>
-              <Perfil user={user}/>
+              <Perfil user={user} eventList={eventList}/>
           </div>
         </div>
       </div>

@@ -4,21 +4,21 @@ import Profile from '../assets/imgs/profile.png';
 import Settings from '../assets/imgs/settings.png'
 import { Link } from 'react-router-dom'
 
-export function Perfil({ id, user }) {
+export function Perfil({ id, user, eventList }) {
     const [showEdit, setShowEdit] = useState(false);
-    const [events, setEvents] = useState([]);
+    // const [events, setEvents] = useState([]);
 
     const toggleEditSection = () => {
         setShowEdit(prevState => !prevState);
     };
 
      // Fetch events from backend
-     useEffect(() => {
-        fetch("http://interactivas_backend.test/api/events/all")
-            .then(response => response.json())
-            .then(data => setEvents(data))
-            .catch(error => console.error('Error fetching events:', error));
-    }, []);
+    //  useEffect(() => {
+    //     fetch("http://interactivas_backend.test/api/events/all")
+    //         .then(response => response.json())
+    //         .then(data => setEvents(data))
+    //         .catch(error => console.error('Error fetching events:', error));
+    // }, []);
 
     return (
         <div>
@@ -117,7 +117,7 @@ export function Perfil({ id, user }) {
                     <div className='bg-black  shadow-md p-4 rounded-lg laptop:overflow-y-scroll '>
                         <h2 className='text-xl font-semibold mb-4 mt-[0.2rem] text-white over '>Próximos Eventos</h2>
                         <div className='space-y-4 mb-[1.1rem] laptop:max-h-[70vh] '>
-                        {events.map(event => (
+                        {eventList.map(event => (
                                 <div key={event.id} className='bg-primary shadow-lg rounded-lg p-4 mr-2'>
                                     <h3 className='text-lg font-normal text-white'>{event.title}</h3>
                                     <Link to={'/Detalles'} state={event.id}><p className='text-white text-sm'>{event.description}</p></Link>
