@@ -1,14 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../index.css';
 import Profile from '../assets/imgs/profile.png';
 import Settings from '../assets/imgs/settings.png'
+import { Link } from 'react-router-dom'
 
-export function Perfil() {
+export function Perfil({ id, user, eventList }) {
     const [showEdit, setShowEdit] = useState(false);
+    // const [events, setEvents] = useState([]);
 
     const toggleEditSection = () => {
         setShowEdit(prevState => !prevState);
     };
+
+     // Fetch events from backend
+    //  useEffect(() => {
+    //     fetch("http://interactivas_backend.test/api/events/all")
+    //         .then(response => response.json())
+    //         .then(data => setEvents(data))
+    //         .catch(error => console.error('Error fetching events:', error));
+    // }, []);
 
     return (
         <div>
@@ -16,9 +26,9 @@ export function Perfil() {
                 <div>
                     <div className=' laptop:w-[46rem] grid grid-cols-2 max-sm:grid-cols-1 min-[720px]:flex justify-items-center justify-center'>
                         <div className='rounded-lg overflow-hidden shadow-lg bg-white p-4 relative h-[13.5rem] mb-[1rem]'>
-                            <div className='flex items-center space-x-4 mt-[2rem]'>
+                            <div className='flex items-center space-x-4 mt-[1rem]'>
                                 <div className='relative'>
-                                    <img className='w-[105%] h-[100%] rounded-full border-2 border-purple-500 max-sm:w-[105%] max-sm:ml-0 max-xl:w-[50%] max-xl:ml-[2rem] max-lg:w-[70%]' src={Profile} alt='' />
+                                    <img className='w-48 h-40 rounded-full object-cover shadow-md border-2 border-purple-500 max-xl:w-[50%] max-xl:ml-[2rem] max-lg:w-[70%]' src={'http://interactivas_backend.test/storage/images/users/'+user.profile_picture} alt='' />
                                     <div className='absolute -bottom-1 -right-1 bg-purple-500 p-2 rounded-full max-xl:mr-[6rem] max-lg:mr-0 max-sm:-right-1'>
                                         <button className='w-[1.5rem]' onClick={toggleEditSection}>
                                             <img src={Settings} alt='' />
@@ -26,20 +36,18 @@ export function Perfil() {
                                     </div>
                                 </div>
                                 <div>
-                                    <h2 className='text-lg font-semibold'>Jason Morales</h2>
-                                    <p className='text-zinc-600'>Jason_morales@gmail.com</p>
-                                    <p className='text-zinc-600'>2 de Marzo de 1990</p>
-                                    <p className='text-zinc-600'>Costa Rica</p>
+                                    <h2 className='text-lg font-semibold'>{user.name}</h2>
+                                    <p className='text-zinc-600'>{user.email}</p>
+                                    <p className='text-zinc-600'>{user.age}</p>
+                                    <p className='text-zinc-600'>{user.nacionality}</p>
                                 </div>
                             </div>
                         </div>
 
                         <div className='col-span-1 bg-white p-4 rounded-lg shadow-md mb-[1rem] ml-4 w-[70%] max-sm:w-[100%] max-sm:ml-0'>
                             <h3 className='font-bold text-lg mb-4'>Cursos matriculados</h3>
-                            <p className='mb-[0.5rem] text-[clamp(0.7rem,_0.9rem,_1.2rem)]'>Desarrollo de Aplicaciones Interactivas I</p>
-                            <p className='mb-[0.5rem]'>Diseño Web</p>
-                            <p className='mb-[0.5rem]'>Ingeniería de Aplicaciones</p>
-                            <p className='mb-[0.5rem]'>Ingeniería de Aplicaciones</p>
+                            {user.courses && user.courses.map((course) => (
+                            <p key={course.id} className='mb-[0.5rem] text-[clamp(0.7rem,_0.9rem,_1.2rem)]'>{course.name}</p>))}
                         </div>
                     </div>
 
@@ -103,44 +111,22 @@ export function Perfil() {
                         </div>
                     </div>
                 </div>
+                
 
-                <div className='bg-black  shadow-md p-4 rounded-lg laptop:overflow-y-scroll '>
-                    <h2 className='text-xl font-semibold mb-4 mt-[0.2rem] text-white over '>Próximos Eventos</h2>
-                    <div className='space-y-4 mb-[1.1rem] laptop:max-h-[70vh] '>
-                        <div className='bg-primary shadow-lg rounded-lg p-4 mr-2 ' >
-                            <h3 className='text-lg font-normal text-white'>Diseño Web</h3>
-                            <a href="#"><p className='text-white text-sm'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></a>
-                        </div>
-                        <div className='bg-primary shadow-lg rounded-lg p-4 mr-2'>
-                            <h3 className='text-lg font-normal text-white'>Diseño Web</h3>
-                            <a href="#"><p className='text-white text-sm'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></a>
-                        </div>
-                        <div className='bg-primary shadow-lg rounded-lg p-4 mr-2'>
-                            <h3 className='text-lg font-normal text-white'>Diseño Web</h3>
-                            <a href="#"><p className='text-white text-sm'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></a>
-                        </div>
-                        <div className='bg-primary shadow-lg rounded-lg p-4 mr-2'>
-                            <h3 className='text-lg font-normal text-white'>Diseño Web</h3>
-                            <a href="#"><p className='text-white text-sm'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></a>
-                        </div>
-                        <div className='bg-primary shadow-lg rounded-lg p-4 mr-2'>
-                            <h3 className='text-lg font-normal text-white'>Diseño Web</h3>
-                            <a href="#"><p className='text-white text-sm'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></a>
-                        </div>
-                        <div className='bg-primary shadow-lg rounded-lg p-4 mr-2'>
-                            <h3 className='text-lg font-normal text-white'>Diseño Web</h3>
-                            <a href="#"><p className='text-white text-sm'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></a>
-                        </div>
-                        <div className='bg-primary shadow-lg rounded-lg p-4 mr-2'>
-                            <h3 className='text-lg font-normal text-white'>Diseño Web</h3>
-                            <a href="#"><p className='text-white text-sm'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></a>
-                        </div>
-                        <div className='bg-primary shadow-lg rounded-lg p-4 mr-2'>
-                            <h3 className='text-lg font-normal text-white'>Diseño Web</h3>
-                            <a href="#"><p className='text-white text-sm'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></a>
+                
+                    <div className='bg-black  shadow-md p-4 rounded-lg laptop:overflow-y-scroll '>
+                        <h2 className='text-xl font-semibold mb-4 mt-[0.2rem] text-white over '>Próximos Eventos</h2>
+                        <div className='space-y-4 mb-[1.1rem] laptop:max-h-[70vh] '>
+                        {eventList.map(event => (
+                                <div key={event.id} className='bg-primary shadow-lg rounded-lg p-4 mr-2'>
+                                    <h3 className='text-lg font-normal text-white'>{event.title}</h3>
+                                    <Link to={'/Detalles'} state={event.id}><p className='text-white text-sm'>{event.description}</p></Link>
+                                </div>
+                            ))}
                         </div>
                     </div>
-                </div>
+                
+                
             </div>
         </div>
     );

@@ -4,7 +4,7 @@ import Lupa from '../../assets/imgs/lupa.png'
 
 export function Redactar() {
     return (
-        <div className='w-[100%] h-[100%] flex border-l-4'>
+        <div className=' w-[100%] h-[100%] flex border-l-4'>
             <div class='w-full mx-auto p-4 bg-white rounded-r-3xl max-sm:rounded-3xl shadow-lg max-sm:w-[100%] max-md:rounded-3xl max-[912px]:rounded-3xl'>
                 <form className='mt-4 ml-2 mr-2'>
                     <div class='mb-4'>

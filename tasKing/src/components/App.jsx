@@ -43,7 +43,7 @@ export function App() {
             <Route path='/PaginaNotificaciones' element={<PaginaNotificaciones user={user} />} />
             <Route path='/PaginaCalendario' element={<PaginaCalendario eventList={eventList} setEventList={setEventList} user={user} />} />
             <Route path='/PaginaComunicados' element={<Comunicados user={user}/>}  />
-            <Route path='/AppProfile' element={<AppProfile user={user} />} />
+            <Route path='/AppProfile' element={<AppProfile user={user} eventList={eventList}/>} />
             <Route path='/Tareas' element={<PaginaTareas eventList={eventList} setEventList={setEventList} title={'Tareas'} user={user} />} />
             <Route path='/eventos' element={<PaginaTareas eventList={eventList} setEventList={setEventList} title={'Eventos'} user={user} />} />
             <Route path='/Detalles' element={<PaginaDetalles user={user}/>} />
