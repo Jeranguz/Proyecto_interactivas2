@@ -15,6 +15,7 @@ import { useFetchData } from './hooks/useFetchData';
 import { Navbar } from './Navbar';
 import { Info } from './info';
 import SignInRegister from './SignInRegister';
+import ForgotPassword from './ForgotPassword';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import { Loading } from './Loading';
 
@@ -48,6 +49,7 @@ export function App() {
             <Route path='/eventos' element={<PaginaTareas eventList={eventList} setEventList={setEventList} title={'Eventos'} user={user} />} />
             <Route path='/Detalles' element={<PaginaDetalles user={user}/>} />
             <Route path='/' element={<SignInRegister />} />
+            <Route path='/ForgotPassword' element={<ForgotPassword />} />
           </Routes>
 
         </Router>

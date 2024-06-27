@@ -112,6 +112,7 @@ function SignInRegister() {
                 <h1 className='text-red-600'>{loginError}</h1>
                 <button type='submit' className="p-2 bg-primary text-white w-[80vw] md:w-[30vw] block text-center">Login</button>
                 <p className="text-sm md:text-base text-center text-gray-600">¿No tienes una cuenta? <a href="#" className="text-primary underline" onClick={handleClick}>Regístrate</a></p>
+                <p className="text-sm md:text-base text-center text-gray-600">¿Olvidaste la contraseña? <a href="ForgotPassword" className="text-primary underline" onClick={handleClick}>Recuperar</a></p>
             </form>
 
             <form onSubmit={submitRegister} className="flex flex-col justify-center items-center space-y-4 sm:gap-y-[2vh] text-[2vw] md:text-base z-10 mt-8 md:row-start-1">
