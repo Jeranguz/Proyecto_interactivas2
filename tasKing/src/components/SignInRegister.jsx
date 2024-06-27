@@ -134,14 +134,29 @@ function SignInRegister() {
                 <h1 className="text-2xl md:text-4xl text-center text-primary font-bold">Crea tu propia aventura</h1>
                 <p className="text-sm md:text-base text-center text-gray-600">Ingresa tus datos para registrarte</p>
                 <div className="flex w-[80vw] md:w-[30vw] justify-between">
+                    <div>
+                    {registerError.name && <h1 className="text-red-500">{registerError.name}</h1>}
                     <input onChange={(e) => setNameRegister(e.target.value)} type="text" placeholder="Name" className="p-2 w-[48%]" name='name' />
+                    </div>
+                    <div>
+                    {registerError.lastname && <h1 className="text-red-500">{registerError.lastname}</h1>}
                     <input onChange={(e) => setLastNameRegister(e.target.value)} type="text" placeholder="Last Name" className="p-2 w-[48%]" name='lastname' />
+                    </div>
                 </div>
                 <div className="flex w-[80vw] md:w-[30vw] justify-between">
+                    <div>
+                    {registerError.username && <h1 className="text-red-500">{registerError.username}</h1>}
                     <input onChange={(e) => setUserNameRegister(e.target.value)} type="text" placeholder="UserName" className="p-2 w-[48%]" name='username' />
+                    </div>
+                    <div>
+                    {registerError.email && <h1 className="text-red-500">{registerError.email}</h1>}
                     <input onChange={(e) => setEmailRegister(e.target.value)} type="email" placeholder="Email" className="p-2 w-[48%]" name='email' />
+                    </div>
                 </div>
+                <div>
+                {registerError.password && <h1 className="text-red-500">{registerError.password}</h1>}
                 <input onChange={(e) => setPasswordRegister(e.target.value)} type="password" placeholder="Password" className="p-2 w-[80vw] md:w-[30vw]" name='password' />
+                </div>
                 <button type='submit' className="p-2 bg-primary text-white w-[80vw] md:w-[30vw] block text-center">Register</button>
                 <p className="text-sm md:text-base text-center text-gray-600">¿Ya tienes una cuenta? <a href="#" className="text-primary underline" onClick={handleClick}>Inicia sesión</a></p>
             </form>
