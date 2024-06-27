@@ -38,7 +38,7 @@ export function AppProfile({user, eventList}) {
          
           <div className=' m-auto laptop:my-0 laptop:w-[75vw] w-[90vw] md:mb-[17rem] mb-[37rem] '>
             <Info Name="Perfil" user={user}/>
-    <button onClick={logout}>Cerrar sesion</button>
+    <button className='bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition-colors duration-300 mt-4' onClick={logout}>Cerrar sesion</button>
               <Perfil user={user} eventList={eventList}/>
           </div>
         </div>
