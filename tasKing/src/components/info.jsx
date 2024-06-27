@@ -12,7 +12,7 @@ export function Info({ Name, user }) {
                         <p>{user.email}</p>
                     </div>
                     <a href='./AppProfile'>
-                        <img className='w-[2.688rem] h-[2.688rem]' src={Profile} alt="" />
+                        <img className='w-[2.688rem] h-[2.688rem]' src={'http://interactivas_backend.test/storage/images/users/'+user.profile_picture} alt="" />
                     </a>
                 </div>
             </div>

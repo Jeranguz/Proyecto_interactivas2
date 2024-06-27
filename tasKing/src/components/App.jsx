@@ -16,7 +16,9 @@ import { Navbar } from './Navbar';
 import { Info } from './info';
 import SignInRegister from './SignInRegister';
 import { useLocalStorage } from './hooks/useLocalStorage';
+import { ResultadosBusqueda } from './ResultadosBusqueda';
 import { Loading } from './Loading';
+
 
 
 
@@ -47,7 +49,9 @@ export function App() {
             <Route path='/Tareas' element={<PaginaTareas eventList={eventList} setEventList={setEventList} title={'Tareas'} user={user} />} />
             <Route path='/eventos' element={<PaginaTareas eventList={eventList} setEventList={setEventList} title={'Eventos'} user={user} />} />
             <Route path='/Detalles' element={<PaginaDetalles user={user}/>} />
+            <Route path='/Busqueda' element={<ResultadosBusqueda eventList={eventList} setEventList={setEventList} title={'Eventos'} user={user} />} />
             <Route path='/' element={<SignInRegister />} />
+
           </Routes>
 
         </Router>

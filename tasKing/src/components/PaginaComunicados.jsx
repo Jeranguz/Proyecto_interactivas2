@@ -30,7 +30,7 @@ export function Comunicados({user}) {
     <>
       <div className='flex '>
         <SideBar />
-        <Navbar />
+        <Navbar user={user}/>
 
         <div className='mt-[8vh] laptop:mt-0 w-[90%]  laptop:w-[75%]  m-auto '>
           <Info Name="Comunicados" user={user}/>
