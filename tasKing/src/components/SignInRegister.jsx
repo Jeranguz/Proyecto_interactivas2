@@ -6,7 +6,7 @@ function SignInRegister() {
     const [isRegister, setIsRegister] = useState(false);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-    const [loginError, setLoginError] = useState('');
+    const [loginError, setLoginError] = useState([]);
     const [registerError, setRegisterError] = useState([]);
     const [nameRegister, setNameRegister] = useState('');
     const [lastNameRegister, setLastNameRegister] = useState('');
@@ -107,9 +107,9 @@ function SignInRegister() {
             <form onSubmit={submitLogin} className="flex flex-col justify-center items-center space-y-4 sm:gap-y-[2vh] text-[2vw] md:text-base z-10 mt-8 md:mt-16 md:row-start-1">
                 <h1 className="text-2xl md:text-4xl text-center text-primary font-bold">Bienvenido de vuelta a Tasking</h1>
                 <p className="text-sm md:text-base text-center text-gray-600">Ingresa tus datos para iniciar sesión</p>
-                <input onChange={(e) => setEmailLogin(e.target.value)} type="email" placeholder="Email" className="p-2 w-[80vw] md:w-[30vw]" name='email' />
-                <input onChange={(e) => setPasswordLogin(e.target.value)} type="password" placeholder="Password" className="p-2 w-[80vw] md:w-[30vw]" name='password' />
-                <h1 className='text-red-600'>{loginError}</h1>
+                <input onChange={(e) => setEmailLogin(e.target.value)} type="email" placeholder="Email" className="p-2 w-[80vw] md:w-[30vw]" name='email'  required/>
+                <input onChange={(e) => setPasswordLogin(e.target.value)} type="password" placeholder="Password" className="p-2 w-[80vw] md:w-[30vw]" name='password' required minLength={8}/>
+                {!Array.isArray(loginError) && <h1 className='text-red-600'>{loginError}</h1>}
                 <button type='submit' className="p-2 bg-primary text-white w-[80vw] md:w-[30vw] block text-center">Login</button>
                 <p className="text-sm md:text-base text-center text-gray-600">¿No tienes una cuenta? <a href="#" className="text-primary underline" onClick={handleClick}>Regístrate</a></p>
                 <p className="text-sm md:text-base text-center text-gray-600">¿Olvidaste la contraseña? <a href="ForgotPassword" className="text-primary underline" onClick={handleClick}>Recuperar</a></p>
