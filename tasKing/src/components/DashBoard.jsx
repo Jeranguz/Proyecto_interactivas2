@@ -9,11 +9,17 @@ import { Link } from 'react-router-dom';
 import { Info } from './info';
 import { useState } from 'react';
 import { SideBar } from './SideBar';
+import { useDateWeekRange } from './hooks/useGetWeekRange';
+import { useGetEventsPercetaje } from './hooks/useGetEventsPercetaje';
 
 import { Navbar } from './Navbar';
 
 
 export function DashBoard({ eventList, user }) {
+    const { firstDay, lastDay } = useDateWeekRange();
+    const porcentajeCompletados = useGetEventsPercetaje(eventList, firstDay, lastDay);
+    console.log(porcentajeCompletados);
+    const barWidth = porcentajeCompletados + '%';
 
     console.log('dashboard usuarios: ', user)
     return (
@@ -32,24 +38,27 @@ export function DashBoard({ eventList, user }) {
                         <div className="laptop:bg-textWhite rounded-3xl laptop:h-full laptop:col-span-5 laptop:row-span-3 ">
                             <div className="bg-white p-[2.5vw] rounded-3xl  ">
                                 <h2 className="'text-primary text-[clamp(1rem,_1.5vw,_1.7rem)] font-bold text-center' mb-4">Progreso de cursos</h2>
+                                {user.courses && user.courses.length > 0 && (
                                 <div className="mb-2">
-                                    <p className="text-sm mb-1">Desarrollo de Aplicaciones Interactivas I</p>
-                                    <div className="bg-zinc-200 rounded-full h-2.5">
-                                        <div className="bg-green-500 h-2.5 rounded-full w-[80%]"></div>
+                                    <p className="text-sm mb-1">{user.courses[0].name}</p>
+                                    <div className="bg-zinc-400 rounded-full h-2.5">
+                                        <div className="bg-green-500 h-2.5 rounded-full w-[80%]"  style={{ width: barWidth }}></div>
                                     </div>
                                 </div>
-                                <div className="mb-2">
-                                    <p className="text-sm mb-1">Diseño Web</p>
-                                    <div className="bg-zinc-200 rounded-full h-2.5">
-                                        <div className="bg-yellow-500 h-2.5 rounded-full w-[60%]"></div>
+                                )}
+                                {user.courses && user.courses.length > 1 && (
+                                    <div>
+                                        {user.courses.slice(1).map((course) => (
+                                            <div key={course.id} className="mb-2">
+                                                <p className="text-sm mb-1">{course.name}</p>
+                                                <div className="bg-zinc-400 rounded-full h-2.5">
+                                                    <div className="bg-green-500 h-2.5 rounded-full w-[60%]"  style={{ width: barWidth }}></div>
+                                                </div>
+                                            </div>
+                                        ))}
                                     </div>
-                                </div>
-                                <div className="mb-4">
-                                    <p className="text-sm mb-1">Ingeniería de Aplicaciones</p>
-                                    <div className="bg-zinc-200 rounded-full h-2.5">
-                                        <div className="bg-red-500 h-2.5 rounded-full w-[30%]"></div>
-                                    </div>
-                                </div>
+                                )}
+                                
                                 <button className="bg-primary text-white py-2 px-4 rounded-laptop w-full hover:bg-purple-700 transition-colors">
                                     <Link to="/DashBoard"></Link>
                                 </button>

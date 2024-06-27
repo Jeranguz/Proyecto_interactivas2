@@ -3,10 +3,16 @@ import '../index.css';
 import Profile from '../assets/imgs/profile.png';
 import Settings from '../assets/imgs/settings.png'
 import { Link } from 'react-router-dom'
+import { useDateWeekRange } from './hooks/useGetWeekRange';
+import { useGetEventsPercetaje } from './hooks/useGetEventsPercetaje';
 
 export function Perfil({ id, user, eventList }) {
     const [showEdit, setShowEdit] = useState(false);
     // const [events, setEvents] = useState([]);
+    const { firstDay, lastDay } = useDateWeekRange();
+    const porcentajeCompletados = useGetEventsPercetaje(eventList, firstDay, lastDay);
+    console.log(porcentajeCompletados);
+    const barWidth = porcentajeCompletados + '%';
 
     const toggleEditSection = () => {
         setShowEdit(prevState => !prevState);
@@ -54,30 +60,27 @@ export function Perfil({ id, user, eventList }) {
                     {/* Progreso de Cursos */}
                     <div className={`bg-white p-4 rounded-lg shadow-md w-[100%] ${showEdit ? 'hidden' : ''}`}>
                         <h2 className='font-semibold mb-4 text-[clamp(1rem,_2.5vw,_2rem)]'>Progreso de cursos</h2>
-                        <div className='mb-2'>
-                            <p className='text-[clamp(0.8rem,_1rem,_1.3rem)] mb-1'>Desarrollo de Aplicaciones Interactivas I</p>
-                            <div className='bg-zinc-200 rounded-full h-4'>
-                                <div className='bg-green-600 h-4 rounded-full w-[80%]'></div>
+                        {user.courses && user.courses.length > 0 && (
+                            <div className='mb-2'>
+                                <p className='text-[clamp(0.8rem,_1rem,_1.3rem)] mb-1'>{user.courses[0].name}</p>
+                                <div className='bg-zinc-400 rounded-full h-4'>
+                                    <div className='bg-green-600 h-4 rounded-full w-[80%]' style={{ width: barWidth }}></div>
+                                </div>
                             </div>
-                        </div>
-                        <div className='mb-2'>
-                            <p className='text-[clamp(0.8rem,_1rem,_1.3rem)] mb-1'>Diseño Web</p>
-                            <div className='bg-zinc-200 rounded-full h-4'>
-                                <div className='bg-yellow-400 h-4 rounded-full w-[60%]'></div>
+                        )}
+                        {user.courses && user.courses.length > 1 && (
+                            <div>
+                                {user.courses.slice(1).map((course) => (
+                                    <div key={course.id} className='mb-2'>
+                                        <p className='text-[clamp(0.8rem,_1rem,_1.3rem)] mb-1'>{course.name}</p>
+                                        {/* Aquí puedes ajustar el estilo de progreso para los cursos restantes */}
+                                        <div className='bg-zinc-400 rounded-full h-4'>
+                                            <div className='bg-green-600 h-4 rounded-full w-[60%]' style={{ width: barWidth }}></div>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
-                        </div>
-                        <div className='mb-4'>
-                            <p className='text-[clamp(0.8rem,_1rem,_1.3rem)] mb-1'>Ingeniería de Aplicaciones</p>
-                            <div className='bg-zinc-200 rounded-full h-4'>
-                                <div className='bg-red-600 h-4 rounded-full w-[30%]'></div>
-                            </div>
-                        </div>
-                        <div className='mb-2'>
-                            <p className='text-[clamp(0.8rem,_1rem,_1.3rem)] mb-1'>Desarrollo de Aplicaciones Interactivas I</p>
-                            <div className='bg-zinc-200 rounded-full h-4'>
-                                <div className='bg-green-600 h-4 rounded-full w-[80%]'></div>
-                            </div>
-                        </div>
+                        )}
                         <button className='bg-primary text-white py-2 px-4 rounded-lg w-[18rem] hover:bg-purple-900 transition-colors mt-[1rem]'>Ver más</button>
                     </div>
 
@@ -114,14 +117,14 @@ export function Perfil({ id, user, eventList }) {
                 
 
                 
-                    <div className='bg-black  shadow-md p-4 rounded-lg laptop:overflow-y-scroll '>
-                        <h2 className='text-xl font-semibold mb-4 mt-[0.2rem] text-white over '>Próximos Eventos</h2>
-                        <div className='space-y-4 mb-[1.1rem] laptop:max-h-[70vh] '>
+                    <div className='bg-black  shadow-md p-4 rounded-lg laptop:overflow-y-scroll'>
+                        <h2 className='text-xl font-semibold mt-[0.2rem] text-white over '>Próximos Eventos</h2>
+                        <div className='space-y-4 mb-[3rem] laptop:max-h-[70vh] '>
                         {eventList.map(event => (
-                                <div key={event.id} className='bg-primary shadow-lg rounded-lg p-4 mr-2'>
+                                <Link to={'/Detalles'} state={event.id}><div key={event.id} className='bg-primary shadow-lg rounded-lg p-4 mr-2 mb-4'>
                                     <h3 className='text-lg font-normal text-white'>{event.title}</h3>
-                                    <Link to={'/Detalles'} state={event.id}><p className='text-white text-sm'>{event.description}</p></Link>
-                                </div>
+                                    <p className='text-white text-sm'>{event.description}</p>
+                                </div></Link>
                             ))}
                         </div>
                     </div>
