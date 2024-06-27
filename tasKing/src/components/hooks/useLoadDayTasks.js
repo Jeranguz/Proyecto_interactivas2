@@ -2,7 +2,7 @@ import { SpecificTask } from "../calendary_components/SpecificTask";
 
 export const useLoadDayTasks = (eventList, isDashboard) => {
     console.log(isDashboard);
-    if (isDashboard) {
+    if (isDashboard && eventList.length > 8) {
         let extra = eventList.length - 8;
         console.log("8");
         return { tasks: eventList.slice(0, 8), extra };

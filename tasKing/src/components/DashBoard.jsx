@@ -26,7 +26,8 @@ export function DashBoard({ eventList, user }) {
         <>
             <div className='flex '>
                 <SideBar />
-                <Navbar />
+                
+                <Navbar user={user} />
                 <div className=' mx-[5vw] laptop:mx-[2vw]  mt-[7vh] laptop:my-0 laptop:w-[75vw] w-[90vw] laptop:mb-0 mb-[5vh] '>
                     <Info Name="DashBoard" user={user} />
 

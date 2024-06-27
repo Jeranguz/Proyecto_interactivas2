@@ -8,7 +8,7 @@ export function Task({ id, title, start, img }) {
     const { dia, mes, hora } = useSeparateDate(start)
     // console.log(day, month, hour)
     return (
-        <div className="border-[0.5px] h-72 rounded-3xl overflow-hidden m-auto md:m-0">
+        <div className="border-[0.5px] h-72 w-[80%] laptop:w-[30%] rounded-3xl overflow-hidden m-auto md:m-0">
             <div className='relative'>
                 <img className='object-cover h-28 w-full' src={'http://interactivas_backend.test/storage/images/'+img} alt="" />
                 <span className='absolute top-[5rem] left-4 bg-secondary px-4 grid items-center rounded-xl'>
@@ -16,8 +16,8 @@ export function Task({ id, title, start, img }) {
                     <p className='text-textWhite'>{mes}</p>
                 </span>
             </div>
-            <div className='pt-8 ml-4'>
-                <h2 className='font-bold text-lg mb-2'>{title}</h2>
+            <div className='pt-8 ml-4 w-[90%]' >
+                <h2 className='font-bold text-lg mb-2 truncate'>{title}</h2>
                 <p className='font-bold text-sm text-hourText'>Hora: {hora}</p>
             </div>
             <div className='px-6 mt-4 mb-8 flex gap-4 justify-between'>

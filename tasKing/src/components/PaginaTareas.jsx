@@ -16,7 +16,7 @@ export function PaginaTareas({ eventList, setEventList, title, user }) {
         // <div className='w-[90%] laptop:w-[77%]  m-auto mt-2 '>
         <div className='flex '>
             <SideBar />
-            <Navbar />
+            <Navbar  user={user}/>
             <div className=' mx-[5vw] laptop:mx-[2.5vw]  mt-[7vh] laptop:my-0 laptop:w-[74vw] md:w-[88vw] w-[84vw] laptop:mb-0 sm:mb-[25vh]'>
                 <Info Name={title} user={user}/>
                 <div className=' m-auto laptop:my-0 laptop:w-[75vw] w-[90vw] md:mb-0 mb-[50rem]'>

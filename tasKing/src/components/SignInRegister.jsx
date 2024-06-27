@@ -2,6 +2,7 @@ import Logo from '../assets/imgs/logo-svg.png'
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+
 function SignInRegister() {
     const [isRegister, setIsRegister] = useState(false);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -15,6 +16,7 @@ function SignInRegister() {
     const [passwordRegister, setPasswordRegister] = useState('');
     const [emailLogin, setEmailLogin] = useState('');
     const [passwordLogin, setPasswordLogin] = useState('');
+
 
     const submitRegister = (event) => {
         event.preventDefault();
@@ -70,20 +72,35 @@ function SignInRegister() {
                 }
             })
             .catch(error => console.error('Error: ', error, ' ', data))
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    localStorage.setItem('token', data.token)
+                    window.location.href = 'http://localhost:5173/DashBoard'
+                    console.log(data)
+                } else {
+                    setLoginError(data.errors)
+                }
+            })
+            .catch(error => console.error('Error: ', error, ' ', data))
     }
+
 
     const handleClick = () => {
         setIsRegister(!isRegister);
     };
 
+
     const handleSignIn = () => {
         onSignIn();
     };
+
 
     useEffect(() => {
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 768);
         };
+
 
         window.addEventListener('resize', handleResize);
 
@@ -93,57 +110,40 @@ function SignInRegister() {
     }, []);
 
     return (
-
-        <div className="relative grid items-start md:grid-cols-2 grid-rows-2 h-[90vh] w-[90vw] mx-[5vw] mt-[2.5vw] bg-white transition-colors duration-500 overflow-hidden">
-            <div className={`absolute top-0 left-0 md:h-full h-1/2 md:w-1/2 w-full bg-primary z-50 transition-all duration-500 ${isRegister ? (isMobile ? 'top-1/2' : 'left-1/2') : 'top-0 left-0'}`}>
-                <div className="flex flex-col justify-center items-center h-full space-y-4">
-                    <img src={Logo} className="w-[50vw] md:w-[20vw] h-auto" alt="Logo" />
-                    <h1 className="text-[2vw] md:text-base text-white">Domina tus tareas con maestría.</h1>
-                    <h1 className="text-[2vw] md:text-base">{isRegister ? 'No te has registrado?' : 'Ya tienes una cuenta?'}</h1>
-                </div>
+    <div className="relative grid items-start md:grid-cols-2 grid-rows-2 h-[90vh] w-[90vw] mx-[5vw] mt-[2.5vw] bg-white transition-colors duration-500 overflow-hidden">
+        <div className={`absolute top-0 left-0 md:h-full h-1/2 md:w-1/2 w-full bg-primary z-50 transition-all duration-500 ${isRegister ? (isMobile ? 'top-1/2' : 'left-1/2') : 'top-0 left-0'}`}>
+            <div className="flex flex-col justify-center items-center h-full space-y-4">
+                <img src={Logo} className="w-[50vw] md:w-[20vw] h-auto" alt="Logo" />
+                <h1 className="text-[2vw] md:text-base text-white">Domina tus tareas con maestría.</h1>
+                <h1 className="text-[2vw] md:text-base">{isRegister ? 'No te has registrado?' : 'Ya tienes una cuenta?'}</h1>
             </div>
-            <div>
-            </div>
-            <form onSubmit={submitLogin} className="flex flex-col justify-center items-center space-y-4 sm:gap-y-[2vh] text-[2vw] md:text-base z-10 mt-8 md:mt-16 md:row-start-1">
-                <h1 className="text-2xl md:text-4xl text-center text-primary font-bold">Bienvenido de vuelta a Tasking</h1>
-                <p className="text-sm md:text-base text-center text-gray-600">Ingresa tus datos para iniciar sesión</p>
-                <input onChange={(e) => setEmailLogin(e.target.value)} type="email" placeholder="Email" className="p-2 w-[80vw] md:w-[30vw]" name='email'  required/>
-                <input onChange={(e) => setPasswordLogin(e.target.value)} type="password" placeholder="Password" className="p-2 w-[80vw] md:w-[30vw]" name='password' required minLength={8}/>
-                {!Array.isArray(loginError) && <h1 className='text-red-600'>{loginError}</h1>}
-                <button type='submit' className="p-2 bg-primary text-white w-[80vw] md:w-[30vw] block text-center">Login</button>
-                <p className="text-sm md:text-base text-center text-gray-600">¿No tienes una cuenta? <a href="#" className="text-primary underline" onClick={handleClick}>Regístrate</a></p>
-                <p className="text-sm md:text-base text-center text-gray-600">¿Olvidaste la contraseña? <a href="ForgotPassword" className="text-primary underline" onClick={handleClick}>Recuperar</a></p>
-            </form>
-
-            <form onSubmit={submitRegister} className="flex flex-col justify-center items-center space-y-4 sm:gap-y-[2vh] text-[2vw] md:text-base z-10 mt-8 md:row-start-1">
-                <h1 className="text-2xl md:text-4xl text-center text-primary font-bold">Crea tu propia aventura</h1>
-                <p className="text-sm md:text-base text-center text-gray-600">Ingresa tus datos para registrarte</p>
-                <div>
-                    {registerError.name && <h1 className="text-red-500">{registerError.name}</h1>}
-                    <input onChange={(e) => setNameRegister(e.target.value)} type="text" placeholder="Name" className="p-2 w-[80vw] md:w-[30vw]" name='name' />
-                </div>
-
-                <div>
-                    {registerError.lastname && <h1 className="text-red-500">{registerError.lastname}</h1>}
-                    <input onChange={(e) => setLastNameRegister(e.target.value)} type="text" placeholder="Last Name" className="p-2 w-[80vw] md:w-[30vw]" name='lastname' />
-                </div>
-                <div>
-                    {registerError.username && <h1 className="text-red-500">{registerError.username}</h1>}
-                    <input onChange={(e) => setUserNameRegister(e.target.value)} type="text" placeholder="UserName" className="p-2 w-[80vw] md:w-[30vw]" name='username' />
-                </div>
-                <div>
-                    {registerError.email && <h1 className="text-red-500">{registerError.email}</h1>}
-                    <input onChange={(e) => setEmailRegister(e.target.value)} type="email" placeholder="Email" className="p-2 w-[80vw] md:w-[30vw]" name='email' />
-                </div>
-                <div>
-                    {registerError.password && <h1 className="text-red-500">{registerError.password}</h1>}
-                    <input onChange={(e) => setPasswordRegister(e.target.value)} type="password" placeholder="Password" className="p-2 w-[80vw] md:w-[30vw]" name='password' />
-                </div>
-                <button type='submit' className="p-2 bg-primary text-white w-[80vw] md:w-[30vw] block text-center">Register</button>
-                <p className="text-sm md:text-base text-center text-gray-600">¿Ya tienes una cuenta? <a href="#" className="text-primary underline" onClick={handleClick}>Inicia sesión</a></p>
-            </form>
         </div>
-    );
+        <div>
+            <h1 className='text-red-600'>{loginError}</h1>
+        </div>
+        <form onSubmit={submitLogin} className="flex flex-col justify-center items-center space-y-4 sm:gap-y-[2vh] text-[2vw] md:text-base z-10 mt-8 md:mt-16 md:row-start-1">
+            <h1 className="text-2xl md:text-4xl text-center text-primary font-bold">Bienvenido de vuelta a Tasking</h1>
+            <p className="text-sm md:text-base text-center text-gray-600">Ingresa tus datos para iniciar sesión</p>
+            <input onChange={(e)=> setEmailLogin(e.target.value)} type="email" placeholder="Email" className="p-2 w-[80vw] md:w-[30vw]" name='email'/>
+            <input onChange={(e)=> setPasswordLogin(e.target.value)} type="password" placeholder="Password" className="p-2 w-[80vw] md:w-[30vw]" name='password'/>
+            <button type='submit' className="p-2 bg-primary text-white w-[80vw] md:w-[30vw] block text-center">Login</button>
+            <p className="text-sm md:text-base text-center text-gray-600">¿No tienes una cuenta? <a href="#" className="text-primary underline" onClick={handleClick}>Regístrate</a></p>
+        </form>
+ 
+        <form onSubmit={submitRegister} className="flex flex-col justify-center items-center space-y-4 sm:gap-y-[2vh] text-[2vw] md:text-base z-10 mt-8 md:row-start-1">
+            <h1 className="text-2xl md:text-4xl text-center text-primary font-bold">Crea tu propia aventura</h1>
+            <p className="text-sm md:text-base text-center text-gray-600">Ingresa tus datos para registrarte</p>
+            <input onChange={(e)=> setNameRegister(e.target.value)} type="text" placeholder="Name" className="p-2 w-[80vw] md:w-[30vw]" name='name' />
+            <input onChange={(e)=> setLastNameRegister(e.target.value)} type="text" placeholder="Last Name" className="p-2 w-[80vw] md:w-[30vw]" name='lastname' />
+            <input onChange={(e)=> setUserNameRegister(e.target.value)} type="text" placeholder="UserName" className="p-2 w-[80vw] md:w-[30vw]" name='username' />
+            <input onChange={(e)=> setEmailRegister(e.target.value)} type="email" placeholder="Email" className="p-2 w-[80vw] md:w-[30vw]" name='email' />
+            <input onChange={(e)=> setPasswordRegister(e.target.value)} type="password" placeholder="Password" className="p-2 w-[80vw] md:w-[30vw]" name='password' />
+            <button type='submit' className="p-2 bg-primary text-white w-[80vw] md:w-[30vw] block text-center">Register</button>
+
+            <p className="text-sm md:text-base text-center text-gray-600">¿Ya tienes una cuenta? <a href="#" className="text-primary underline" onClick={handleClick}>Inicia sesión</a></p>
+        </form>
+    </div>
+);
 }
 
 export default SignInRegister;

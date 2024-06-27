@@ -7,7 +7,7 @@ import { data } from './noti_Componentes/NotiTable';
 export function PaginaNotificaciones({user}) {
     return (
         <div className='flex '>
-            <SideBar />
+            <SideBar user={user}/>
             <Navbar />
             <div className=' mx-[5vw] laptop:mx-[2vw]  mt-[7vh] laptop:my-0 laptop:w-[75vw] w-[90vw] laptop:mb-0 mb-[5vh] sm:mb-[13vh] '>
                 <Info Name="Notificaciones" user={user}/>
